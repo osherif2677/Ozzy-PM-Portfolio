@@ -2,41 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Osman (Ozzy) Sherif – Program & Project Management Portfolio</title>
+  <title>Osman (Ozzy) Sherif – Program Management Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Osman (Ozzy) Sherif – Amazon Assistant Manager & aspiring Program Manager. Portfolio of data-driven programs, leadership stories, and PM-style work samples." />
   <style>
     :root {
-      --bg: #f3f4f6;
-      --bg-alt: #e5ebff;
-      --card-bg: #ffffff;
+      --bg-page: #f3f6fb;
+      --bg-card: #ffffff;
+      --bg-card-soft: #f8fbff;
       --accent: #2563eb;
-      --accent-soft: rgba(37, 99, 235, 0.1);
+      --accent-soft: rgba(37, 99, 235, 0.12);
       --accent-strong: #1d4ed8;
-      --accent-secondary: #10b981;
-      --text-main: #0f172a;
-      --text-soft: #6b7280;
+      --accent-secondary: #0ea5e9;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --text-soft: #9ca3af;
       --border-subtle: #e5e7eb;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.10);
       --radius-lg: 18px;
-      --transition-fast: 180ms ease;
+      --radius-pill: 999px;
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.24s ease-out;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
     }
 
     * {
       box-sizing: border-box;
-    }
-
-    html, body {
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #e0ebff, #f9fafb 40%, #eef2ff 100%);
-      color: var(--text-main);
-      scroll-behavior: smooth;
     }
 
     body {
-      min-height: 100vh;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at 0% 0%, #dbeafe 0, #f3f4f6 42%, #eef2ff 100%);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -44,2203 +44,1451 @@
       text-decoration: none;
     }
 
-    /* Layout */
-
-    .page-shell {
-      max-width: 1180px;
+    main {
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 24px 16px 56px;
+      padding: 24px 16px 80px;
     }
+
+    /* NAVBAR */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(248, 250, 252, 0.96), rgba(248, 250, 252, 0.88));
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(243, 244, 246, 0.92), rgba(243, 244, 246, 0.75));
+      border-bottom: 1px solid rgba(209, 213, 219, 0.6);
     }
 
-    .nav-inner {
-      max-width: 1180px;
+    .nav {
+      max-width: 1120px;
       margin: 0 auto;
       padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 16px;
     }
 
     .nav-left {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      font-size: 0.98rem;
     }
 
-    .nav-pill {
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #bfdbfe, #2563eb);
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #eff6ff;
-      font-size: 0.85rem;
-      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.85);
     }
 
-    .nav-right {
+    .nav-name {
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-tagline {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .nav-links {
       display: flex;
+      gap: 6px;
       flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.9rem;
     }
 
     .nav-link {
+      font-size: 11px;
       padding: 6px 10px;
       border-radius: 999px;
-      color: var(--text-soft);
-      background: transparent;
       border: 1px solid transparent;
+      color: var(--text-muted);
+      background: transparent;
       cursor: pointer;
       transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
     }
 
     .nav-link:hover {
-      background: #e5edff;
-      color: var(--accent-strong);
-      border-color: rgba(37, 99, 235, 0.3);
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(209, 213, 219, 0.8);
+      color: var(--text-main);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
       transform: translateY(-1px);
-      box-shadow: 0 8px 20px rgba(148, 163, 184, 0.3);
     }
 
-    .nav-link-primary {
-      background: #111827;
-      color: #f9fafb;
-      border-radius: 999px;
-      padding: 6px 16px;
-      border: 1px solid #111827;
-      font-weight: 500;
+    .nav-link.primary {
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      color: white;
+      border-color: rgba(37, 99, 235, 0.05);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
     }
 
-    .nav-link-primary:hover {
-      background: #020617;
-      border-color: #020617;
+    .nav-link.primary:hover {
+      transform: translateY(-1px) translateX(0);
+      box-shadow: 0 14px 36px rgba(37, 99, 235, 0.45);
     }
 
-    /* Generic components */
+    /* SECTION BASE */
 
-    h1, h2, h3, h4 {
-      margin: 0;
-      font-weight: 700;
+    section {
+      margin-top: 32px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 22px;
       letter-spacing: -0.03em;
     }
 
-    h2.section-title {
-      font-size: 1.35rem;
-      margin-bottom: 4px;
-    }
-
-    .section-kicker {
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #9ca3af;
-      margin-bottom: 4px;
-    }
-
     .section-subtitle {
-      font-size: 0.9rem;
-      color: var(--text-soft);
-      margin-bottom: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 520px;
     }
 
-    .section {
-      margin-top: 40px;
-    }
-
-    .grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    @media (min-width: 900px) {
-      .grid-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .grid-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .hover-zoom {
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
-      will-change: transform;
-    }
-
-    .hover-zoom:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 16px 35px rgba(148, 163, 184, 0.25);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 18px 18px 18px;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-    }
-
-    .tag {
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(255, 255, 255, 0.85);
-      color: #4b5563;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
-    }
-
-    .tag:hover {
-      transform: translateY(-2px) scale(1.02);
-      background: #1d4ed8;
-      color: #eff6ff;
-      border-color: transparent;
-      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.45);
-    }
-
-    .badge-soft {
+    .pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 3px 10px;
+      font-size: 11px;
+      padding: 3px 8px;
       border-radius: 999px;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: rgba(15, 23, 42, 0.03);
-      color: #6b7280;
+      background: rgba(15, 23, 42, 0.04);
+      color: var(--text-soft);
       border: 1px solid rgba(148, 163, 184, 0.4);
     }
 
-    .badge-dot {
+    .pill-dot {
       width: 6px;
       height: 6px;
       border-radius: 999px;
-      background: var(--accent-secondary);
+      background: radial-gradient(circle at 30% 0%, #e5f3ff, #2563eb);
     }
 
-    .pill-highlight {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border-radius: 999px;
-      padding: 4px 10px 4px 4px;
-      background: rgba(22, 163, 74, 0.08);
-      color: #15803d;
-      font-size: 0.75rem;
-      border: 1px solid rgba(34, 197, 94, 0.4);
+    /* CARD / HOVER BEHAVIOR */
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      padding: 18px 20px;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med), background var(--transition-med);
     }
 
-    .pill-highlight span.icon {
-      display: inline-flex;
-      width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      align-items: center;
-      justify-content: center;
-      background: #22c55e;
-      color: #ecfdf5;
-      font-size: 0.75rem;
+    .card-soft {
+      background: var(--bg-card-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(209, 213, 219, 0.6);
+      padding: 18px 20px;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med), background var(--transition-med);
     }
 
-    .muted {
-      color: var(--text-soft);
-      font-size: 0.9rem;
+    .card:hover,
+    .card-soft:hover,
+    .zoom-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(148, 163, 184, 0.9);
+      background: #ffffff;
     }
 
-    .metric-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      color: #4b5563;
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-    .metric-pill strong {
-      color: var(--accent-strong);
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 9px 16px;
-      font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 500;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #111827, #1f2937);
-      color: #f9fafb;
-      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.6);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.75);
-      background: linear-gradient(135deg, #020617, #111827);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.75);
-      color: #111827;
-      border: 1px solid rgba(148, 163, 184, 0.9);
-    }
-
-    .btn-secondary:hover {
-      background: #2563eb;
-      color: #eff6ff;
-      box-shadow: 0 16px 35px rgba(37, 99, 235, 0.5);
-      border-color: transparent;
-    }
-
-    .btn span.icon {
-      font-size: 1rem;
-      line-height: 1;
-    }
-
-    /* Hero */
+    /* HERO */
 
     .hero {
-      margin-top: 26px;
+      margin-top: 20px;
       display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
       gap: 18px;
     }
 
-    @media (min-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-        align-items: stretch;
-      }
-    }
-
-    .hero-main {
-      padding: 20px 22px 22px;
-      border-radius: 26px;
-      background: radial-gradient(circle at top left, #eff6ff, #ffffff);
-      border: 1px solid rgba(191, 219, 254, 0.9);
-      box-shadow: 0 24px 60px rgba(148, 163, 184, 0.55);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-main::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.16), transparent 55%);
-      mix-blend-mode: screen;
-      pointer-events: none;
-    }
-
-    .hero-main-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.04);
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #4b5563;
-      margin-bottom: 8px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-    }
-
-    .hero-eyebrow span.dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.28);
-    }
-
-    .hero h1 {
-      font-size: clamp(1.85rem, 3vw, 2.3rem);
+    .hero-left h1 {
+      font-size: 28px;
+      letter-spacing: -0.04em;
       margin-bottom: 6px;
     }
 
-    .hero h1 span.sub {
-      font-weight: 500;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      color: #6b7280;
-      letter-spacing: 0.2em;
-      display: block;
-      margin-bottom: 4px;
+    .hero-highlight {
+      background: linear-gradient(to right, #2563eb, #0ea5e9);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
     }
 
-    .hero-subline {
-      font-size: 0.95rem;
-      color: #4b5563;
-      margin-bottom: 14px;
-      max-width: 520px;
+    .hero-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
     }
 
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.78rem;
-      color: #4b5563;
-      margin-bottom: 10px;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-bottom: 14px;
     }
 
-    .hero-meta-item {
+    .hero-meta span {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 9px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.03);
-      border: 1px solid rgba(148, 163, 184, 0.65);
+      background: rgba(15, 23, 42, 0.04);
     }
 
-    .hero-meta-item span.icon {
-      font-size: 0.9rem;
-    }
-
-    .hero-tags-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #9ca3af;
-      margin-top: 6px;
-      margin-bottom: 4px;
-    }
-
-    .hero-side {
-      display: grid;
-      gap: 10px;
-    }
-
-    .hero-panel {
-      border-radius: 22px;
-      padding: 14px 14px 15px;
-      background: linear-gradient(145deg, #111827, #1e293b);
-      color: #e5e7eb;
-      border: 1px solid #020617;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: -60px -40px auto auto;
-      background: radial-gradient(circle at top, rgba(37, 99, 235, 0.65), transparent 60%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .hero-panel-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-panel h3 {
-      font-size: 0.86rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 600;
-      color: #93c5fd;
-      margin-bottom: 4px;
-    }
-
-    .hero-panel-main {
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .hero-panel-main strong {
-      font-size: 1.2rem;
-      color: #e5e7eb;
-    }
-
-    .hero-panel p {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      margin: 4px 0;
-    }
-
-    .hero-panel .mini-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 0.75rem;
-      margin-top: 6px;
-    }
-
-    .hero-panel-pill {
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.65);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-    }
-
-    .hero-side .card {
-      border-radius: 22px;
-      padding: 14px;
-    }
-
-    .hero-role-tag {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #2563eb;
-    }
-
-    .hero-list {
-      list-style: none;
-      margin: 6px 0 0;
-      padding: 0;
-      font-size: 0.8rem;
-      color: #4b5563;
-    }
-
-    .hero-list li {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 4px;
-    }
-
-    .hero-list span.bullet {
-      font-size: 0.75rem;
-      margin-top: 2px;
-      color: #22c55e;
-    }
-
-    /* Impact at a Glance */
-
-    .impact-wrapper {
-      margin-top: 18px;
-      display: grid;
-      gap: 18px;
-    }
-
-    @media (min-width: 900px) {
-      .impact-wrapper {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .impact-card {
-      border-radius: 22px;
-      padding: 16px 16px 18px;
-      background: linear-gradient(135deg, #f9fafb, #eef2ff);
-      border: 1px solid rgba(191, 219, 254, 0.9);
-      box-shadow: 0 18px 40px rgba(148, 163, 184, 0.45);
-    }
-
-    .impact-title {
-      font-size: 0.86rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #6b7280;
-      margin-bottom: 2px;
-    }
-
-    .impact-heading {
-      font-weight: 600;
-      margin-bottom: 8px;
-      font-size: 1rem;
-      color: #111827;
-    }
-
-    .metric-row {
-      margin-top: 8px;
-    }
-
-    .metric-label {
-      font-size: 0.8rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 2px;
-      color: #4b5563;
-    }
-
-    .metric-label span.value {
-      font-weight: 600;
-      color: #111827;
-    }
-
-    .metric-label span.delta {
-      font-size: 0.76rem;
-      color: #22c55e;
-    }
-
-    .metric-label span.delta.bad {
-      color: #f97316;
-    }
-
-    .bar-track {
-      position: relative;
-      width: 100%;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(209, 213, 219, 0.7);
-      overflow: hidden;
-    }
-
-    .bar-fill {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #22c55e, #16a34a);
-      transform-origin: left;
-      transform: scaleX(0);
-      animation: fill-bar 1.3s ease forwards;
-    }
-
-    .bar-fill.secondary {
-      background: linear-gradient(90deg, #60a5fa, #2563eb);
-    }
-
-    @keyframes fill-bar {
-      from { transform: scaleX(0); }
-      to { transform: scaleX(1); }
-    }
-
-    .metric-caption {
-      font-size: 0.74rem;
-      color: #6b7280;
-      margin-top: 3px;
-    }
-
-    .impact-footnote {
-      font-size: 0.75rem;
-      color: #6b7280;
-      margin-top: 10px;
-    }
-
-    .impact-footnote strong {
-      color: #111827;
-    }
-
-    .legend-card {
-      margin-top: 10px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.03);
-      border: 1px dashed rgba(148, 163, 184, 0.9);
-      font-size: 0.75rem;
-      color: #4b5563;
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin-bottom: 10px;
     }
 
-    .legend-chip {
-      display: inline-flex;
-      gap: 4px;
-      align-items: center;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.9);
-      font-size: 0.72rem;
-    }
-
-    .legend-chip span.dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    /* Programs & Projects */
-
-    .program-grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    @media (min-width: 900px) {
-      .program-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .program-card {
-      border-radius: 22px;
-      padding: 16px 16px 14px;
-      background: var(--card-bg);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      box-shadow: 0 18px 45px rgba(148, 163, 184, 0.45);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .program-badge-row {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
-
-    .program-tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #6b7280;
-    }
-
-    .program-badge {
-      font-size: 0.72rem;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(37, 99, 235, 0.07);
-      color: #1d4ed8;
-      border: 1px solid rgba(129, 140, 248, 0.6);
-    }
-
-    .program-card h3 {
-      font-size: 0.98rem;
-      margin-bottom: 2px;
-    }
-
-    .program-meta {
-      font-size: 0.78rem;
-      color: #6b7280;
-      margin-bottom: 6px;
-    }
-
-    .program-stat-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 6px;
-      font-size: 0.77rem;
-    }
-
-    .program-stat {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(248, 250, 252, 0.9);
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      color: #111827;
-    }
-
-    .program-stat span.label {
-      color: #6b7280;
-    }
-
-    .program-body {
-      font-size: 0.84rem;
-      color: #4b5563;
-      margin-bottom: 6px;
-    }
-
-    .program-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      font-size: 0.8rem;
-      color: #4b5563;
-    }
-
-    .program-list li {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 3px;
-    }
-
-    .program-list span.bullet {
-      font-size: 0.75rem;
-      color: #9ca3af;
-      margin-top: 1px;
-    }
-
-    .program-footer {
-      margin-top: 6px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 0.75rem;
-      color: #6b7280;
-      align-items: center;
-    }
-
-    .program-footer span.lp-pill {
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.03);
-      border: 1px dashed rgba(148, 163, 184, 0.8);
-    }
-
-    /* Data & tools */
-
-    .data-layout {
-      display: grid;
-      gap: 16px;
-    }
-
-    @media (min-width: 900px) {
-      .data-layout {
-        grid-template-columns: minmax(0, 1.8fr) minmax(0, 2fr);
-      }
-    }
-
-    .snippet-card {
-      border-radius: 18px;
-      padding: 14px 14px 12px;
-      background: #020617;
-      color: #e5e7eb;
-      border: 1px solid #0f172a;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.78rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .snippet-card::before {
-      content: "";
-      position: absolute;
-      inset: -40px -10px auto auto;
-      background: radial-gradient(circle at top, rgba(59, 130, 246, 0.45), transparent 60%);
-      opacity: 0.75;
-      pointer-events: none;
-    }
-
-    .snippet-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .snippet-label {
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #e5e7eb; /* darker for legibility */
-      margin-bottom: 6px;
-      opacity: 0.9;
-    }
-
-    .snippet-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      font-size: 0.7rem;
-      margin-bottom: 6px;
-    }
-
-    .snippet-code {
-      white-space: pre;
-      color: #cbd5f5;
-      line-height: 1.4;
-    }
-
-    .snippet-comment {
-      color: #6ee7b7;
-    }
-
-    .snippet-keyword {
-      color: #60a5fa;
-    }
-
-    .snippet-number {
-      color: #fbbf24;
-    }
-
-    .snippet-string {
-      color: #f97316;
-    }
-
-    .snippet-meta-line {
-      margin-top: 6px;
-      font-size: 0.7rem;
-      color: #9ca3af;
-    }
-
-    .data-notes {
-      font-size: 0.86rem;
-      color: #4b5563;
-    }
-
-    .data-notes ul {
-      padding-left: 18px;
-      margin-top: 6px;
-      margin-bottom: 0;
-    }
-
-    .data-notes li {
-      margin-bottom: 4px;
-    }
-
-    .data-badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 6px;
-      font-size: 0.74rem;
-      color: #6b7280;
-    }
-
-    /* Data visuals gallery */
-
-    .gallery-grid {
-      display: grid;
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    @media (min-width: 900px) {
-      .gallery-grid {
-        grid-template-columns: 1.2fr 1.1fr;
-      }
-    }
-
-    .gallery-card {
-      border-radius: 18px;
-      background: var(--card-bg);
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      padding: 12px 12px 10px;
-      box-shadow: 0 18px 40px rgba(148, 163, 184, 0.45);
-      font-size: 0.78rem;
-      color: #4b5563;
-    }
-
-    .gallery-title {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #6b7280;
-      margin-bottom: 4px;
-    }
-
-    .gallery-metric {
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: #111827;
-      margin-bottom: 4px;
-    }
-
-    .gallery-chart {
-      margin-top: 4px;
-      border-radius: 14px;
-      background: linear-gradient(to bottom right, #eff6ff, #ffffff);
-      border: 1px solid rgba(191, 219, 254, 0.8);
-      padding: 8px 8px 10px;
-    }
-
-    .gallery-bar-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      margin-bottom: 4px;
-    }
-
-    .gallery-bar-label {
-      width: 62px;
-      color: #6b7280;
-    }
-
-    .gallery-bar-track {
-      flex: 1;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(209, 213, 219, 0.8);
-      overflow: hidden;
-    }
-
-    .gallery-bar-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #22c55e, #16a34a);
-      transform-origin: left;
-      transform: scaleX(0);
-      animation: fill-bar 1.2s ease forwards;
-    }
-
-    .gallery-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.75rem;
-      margin-top: 4px;
-    }
-
-    .gallery-table th,
-    .gallery-table td {
-      padding: 3px 4px;
-      border-bottom: 1px solid rgba(209, 213, 219, 0.9);
-      text-align: right;
-    }
-
-    .gallery-table th:first-child,
-    .gallery-table td:first-child {
-      text-align: left;
-    }
-
-    .gallery-table th {
-      font-weight: 600;
-      color: #6b7280;
-      background: rgba(248, 250, 252, 0.9);
-    }
-
-    .heat-badge {
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 44px;
-      padding: 2px 4px;
-      border-radius: 999px;
-      background: rgba(248, 250, 252, 0.9);
+      gap: 7px;
+      font-size: 12px;
+      padding: 8px 13px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.75);
+      background: rgba(248, 250, 252, 0.98);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
     }
 
-    .heat-badge.bad {
-      background: rgba(248, 113, 113, 0.15);
-      color: #b91c1c;
+    .btn-icon {
+      font-size: 14px;
     }
 
-    .heat-badge.good {
-      background: rgba(34, 197, 94, 0.15);
-      color: #15803d;
+    .btn-primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      color: white;
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.45);
     }
 
-    .task-legend {
-      font-size: 0.72rem;
-      color: #6b7280;
-      margin-top: 6px;
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 45px rgba(37, 99, 235, 0.5);
+    }
+
+    .btn-outline:hover {
+      background: #ffffff;
+      border-color: rgba(148, 163, 184, 0.9);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .chip-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
-    .task-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 3px 8px;
+    .chip {
+      font-size: 11px;
+      padding: 4px 9px;
       border-radius: 999px;
-      background: rgba(248, 250, 252, 0.9);
+      background: rgba(15, 23, 42, 0.04);
+      color: var(--text-muted);
       border: 1px solid rgba(209, 213, 219, 0.9);
     }
 
-    .task-dot {
-      width: 8px;
-      height: 8px;
+    .chip-strong {
+      background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+    }
+
+    .metric-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .metric-pill {
+      padding: 5px 10px;
       border-radius: 999px;
-      background: #22c55e;
+      background: rgba(15, 23, 42, 0.04);
     }
 
-    .task-dot.late {
-      background: #f97316;
-    }
+    /* IMPACT AT A GLANCE */
 
-    .task-timeline {
-      margin-top: 4px;
-      width: 100%;
-      border-radius: 14px;
-      padding: 8px;
-      background: linear-gradient(to bottom right, #eff6ff, #ffffff);
-      border: 1px solid rgba(191, 219, 254, 0.8);
-      font-size: 0.75rem;
-    }
-
-    .task-row {
+    .impact-grid {
       display: grid;
-      grid-template-columns: 0.9fr 2.2fr;
-      gap: 6px;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-
-    .task-row-label {
-      color: #6b7280;
-    }
-
-    .task-bar-track {
-      position: relative;
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(209, 213, 219, 0.7);
-      overflow: hidden;
-    }
-
-    .task-bar-fill {
-      position: absolute;
-      inset: 0;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #22c55e, #16a34a);
-      transform-origin: left;
-      transform: scaleX(0);
-      animation: fill-bar 1.2s ease forwards;
-    }
-
-    .task-bar-fill.partial {
-      background: linear-gradient(90deg, #facc15, #eab308);
-    }
-
-    .task-bar-fill.late {
-      background: linear-gradient(90deg, #f97316, #ea580c);
-    }
-
-    /* Leadership principles */
-
-    .lp-grid {
-      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
       gap: 14px;
+      margin-top: 4px;
     }
 
-    @media (min-width: 900px) {
-      .lp-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .lp-card {
-      border-radius: 18px;
-      padding: 12px 12px 12px;
-      background: var(--card-bg);
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      box-shadow: 0 16px 36px rgba(148, 163, 184, 0.4);
-      font-size: 0.8rem;
-      color: #4b5563;
-    }
-
-    .lp-heading {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #6b7280;
-      margin-bottom: 4px;
-    }
-
-    .lp-title {
+    .impact-title {
+      font-size: 14px;
       font-weight: 600;
-      margin-bottom: 4px;
-      color: #111827;
+      margin-bottom: 8px;
     }
 
-    .lp-metric {
-      font-size: 0.75rem;
-      color: #6b7280;
-      margin-bottom: 4px;
+    .impact-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
     }
 
-    .lp-card ul {
-      margin: 0;
-      padding-left: 16px;
-      font-size: 0.78rem;
+    .impact-row {
+      margin-bottom: 10px;
     }
 
-    .lp-card li {
+    .impact-row-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
       margin-bottom: 3px;
     }
 
-    /* Career journey */
-
-    .timeline {
-      border-radius: 22px;
-      padding: 16px 18px;
-      background: linear-gradient(135deg, #111827, #020617);
-      color: #e5e7eb;
-      border: 1px solid #020617;
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
-      font-size: 0.85rem;
+    .impact-bar-bg {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
     }
 
-    .timeline-header {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #9ca3af;
-      margin-bottom: 4px;
+    .impact-bar-from,
+    .impact-bar-to {
+      height: 100%;
+      border-radius: inherit;
+      transition: width 0.8s ease-out;
     }
 
-    .timeline-title {
-      font-size: 1.05rem;
+    .impact-bar-from {
+      width: 40%;
+      background: linear-gradient(90deg, #9ca3af, #d1d5db);
+    }
+
+    .impact-bar-to {
+      width: 80%;
+      background: linear-gradient(90deg, #2563eb, #22c55e);
+      margin-top: -6px;
+      opacity: 0.9;
+    }
+
+    .impact-caption {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    /* DATA ANALYSIS GALLERY */
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .analysis-title {
+      font-size: 13px;
       font-weight: 600;
       margin-bottom: 6px;
     }
 
-    .timeline-body {
+    table.pivot {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-top: 6px;
+    }
+
+    table.pivot th,
+    table.pivot td {
+      padding: 4px 6px;
+      border: 1px solid #e5e7eb;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    table.pivot th:first-child,
+    table.pivot td:first-child {
+      text-align: left;
+    }
+
+    table.pivot thead {
+      background: #eff6ff;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .sparkline-bars {
+      display: flex;
+      gap: 4px;
+      align-items: flex-end;
+      height: 60px;
+      margin-top: 6px;
+    }
+
+    .spark-bar {
+      flex: 1;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #22c55e, #15803d);
+      opacity: 0.8;
+    }
+
+    .spark-bar.bad {
+      background: linear-gradient(180deg, #f97316, #b91c1c);
+    }
+
+    .spark-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--text-soft);
+      margin-top: 2px;
+    }
+
+    .donut {
+      position: relative;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background:
+        conic-gradient(#22c55e 0 120deg,
+                       #facc15 120deg 210deg,
+                       #f97316 210deg 300deg,
+                       #e5e7eb 300deg 360deg);
+      margin-right: 12px;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.15);
+    }
+
+    .donut-inner {
+      position: absolute;
+      inset: 17px;
+      border-radius: 50%;
+      background: #f9fafb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .donut-legend {
+      font-size: 11px;
+      color: var(--text-muted);
       display: grid;
-      gap: 12px;
+      gap: 2px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .legend-swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    .legend-swatch.green { background: #22c55e; }
+    .legend-swatch.yellow { background: #facc15; }
+    .legend-swatch.orange { background: #f97316; }
+    .legend-swatch.gray { background: #9ca3af; }
+
+    .donut-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-top: 8px;
     }
 
-    @media (min-width: 900px) {
-      .timeline-body {
-        grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.4fr);
-      }
+    /* PROGRAMS & PROJECTS */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 14px;
     }
 
-    .timeline-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
+    .project-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .tag {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.06);
+      color: #1d4ed8;
+      border: 1px solid rgba(191, 219, 254, 0.9);
+    }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .project-meta {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .project-list {
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-left: 16px;
+      margin-bottom: 8px;
+    }
+
+    .stat-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .stat-pill {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.06);
+      color: #15803d;
+      border: 1px solid rgba(187, 247, 208, 0.9);
+    }
+
+    .stat-pill.neutral {
+      background: rgba(148, 163, 184, 0.05);
+      color: #4b5563;
+      border-color: rgba(209, 213, 219, 0.9);
+    }
+
+    /* TOOLS & METHODS */
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .tools-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .tools-body {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .code-block {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 11px;
+      border-radius: 10px;
+      background: #020617;
+      color: #e5e7eb;
+      padding: 10px 11px;
+      overflow-x: auto;
+      border: 1px solid #0f172a;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.65);
+    }
+
+    .code-keyword { color: #38bdf8; }
+    .code-func { color: #a5b4fc; }
+    .code-number { color: #facc15; }
+    .code-comment { color: #64748b; font-style: italic; }
+    .code-string { color: #4ade80; }
+
+    .tools-list {
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-left: 16px;
+    }
+
+    .tools-list li { margin-bottom: 4px; }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .skill-pill {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.04);
+      color: var(--text-muted);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .skill-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.16);
+      background: #ffffff;
+      border-color: rgba(148, 163, 184, 1);
+    }
+
+    /* LEADERSHIP PRINCIPLES */
+
+    .lp-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .lp-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .lp-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .lp-story {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* CAREER JOURNEY */
+
+    .timeline {
+      border-left: 1px solid rgba(209, 213, 219, 0.9);
+      padding-left: 16px;
+      margin-top: 6px;
     }
 
     .timeline-item {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 8px;
-      padding: 7px 8px;
-      border-radius: 14px;
-      background: rgba(15, 23, 42, 0.58);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
-    }
-
-    .timeline-item:hover {
-      transform: translateY(-3px) scale(1.01);
-      background: rgba(15, 23, 42, 0.85);
-      border-color: rgba(96, 165, 250, 0.9);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      position: relative;
+      padding-bottom: 12px;
     }
 
     .timeline-dot {
-      margin-top: 4px;
-      width: 10px;
-      height: 10px;
+      position: absolute;
+      left: -8px;
+      top: 3px;
+      width: 11px;
+      height: 11px;
       border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
-      flex-shrink: 0;
-    }
-
-    .timeline-main {
-      flex: 1;
+      background: #ffffff;
+      border: 2px solid #2563eb;
+      box-shadow: 0 0 0 4px rgba(191, 219, 254, 0.6);
     }
 
     .timeline-role {
-      font-size: 0.9rem;
+      font-size: 13px;
       font-weight: 600;
     }
 
     .timeline-meta {
-      font-size: 0.72rem;
-      color: #9ca3af;
-      margin-bottom: 2px;
-    }
-
-    .timeline-desc {
-      font-size: 0.78rem;
-      color: #e5e7eb;
-    }
-
-    .timeline-aside {
-      font-size: 0.78rem;
-      color: #cbd5f5;
-    }
-
-    .timeline-aside h4 {
-      font-size: 0.84rem;
+      font-size: 11px;
+      color: var(--text-soft);
       margin-bottom: 4px;
-      color: #e5e7eb;
     }
 
-    .timeline-aside ul {
-      padding-left: 16px;
-      margin: 0 0 4px;
+    .timeline-body {
+      font-size: 12px;
+      color: var(--text-muted);
     }
 
-    .timeline-aside li {
-      margin-bottom: 3px;
-    }
+    /* CONTACT */
 
-    /* Contact */
-
-    .contact-card {
-      border-radius: 20px;
-      padding: 16px 16px 18px;
-      background: var(--card-bg);
-      border: 1px solid rgba(148, 163, 184, 0.9);
-      box-shadow: 0 18px 45px rgba(148, 163, 184, 0.45);
-      font-size: 0.9rem;
-      display: grid;
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
+      margin-top: 6px;
+      font-size: 12px;
     }
 
-    @media (min-width: 800px) {
-      .contact-card {
-        grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+    .contact-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.9);
+      background: rgba(248, 250, 252, 0.9);
+      color: var(--text-muted);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .impact-grid,
+      .cards-grid,
+      .tools-grid,
+      .lp-grid,
+      .analysis-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav {
+        flex-wrap: wrap;
       }
     }
 
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.85rem;
-    }
-
-    .contact-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.9);
-      background: rgba(248, 250, 252, 0.95);
-      cursor: pointer;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
-    }
-
-    .contact-chip:hover {
-      transform: translateY(-2px) scale(1.02);
-      background: #2563eb;
-      color: #eff6ff;
-      border-color: transparent;
-      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
-    }
-
-    .contact-chip span.icon {
-      font-size: 1rem;
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 0.75rem;
-      text-align: center;
-      color: #9ca3af;
-    }
-
-    /* Apply hover zoom utility to common interactive blocks */
-
-    .card.hover-zoom,
-    .impact-card.hover-zoom,
-    .program-card.hover-zoom,
-    .snippet-card.hover-zoom,
-    .gallery-card.hover-zoom,
-    .lp-card.hover-zoom,
-    .contact-card.hover-zoom {
-      /* base state */
-    }
-
-    .card.hover-zoom:hover,
-    .impact-card.hover-zoom:hover,
-    .program-card.hover-zoom:hover,
-    .snippet-card.hover-zoom:hover,
-    .gallery-card.hover-zoom:hover,
-    .lp-card.hover-zoom:hover,
-    .contact-card.hover-zoom:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: var(--shadow-soft);
-      border-color: rgba(37, 99, 235, 0.45);
+    @media (max-width: 640px) {
+      main {
+        padding: 18px 14px 60px;
+      }
+      .hero-left h1 {
+        font-size: 24px;
+      }
+      .section-title {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <nav class="nav-inner">
+    <nav class="nav">
       <div class="nav-left">
-        <div class="nav-pill">OS</div>
-        <div>Osman (Ozzy) Sherif</div>
+        <div class="avatar">O</div>
+        <div>
+          <div class="nav-name">Osman (Ozzy) Sherif</div>
+          <div class="nav-tagline">Amazon L4 Assistant Manager · Aspiring L5 Program Manager</div>
+        </div>
       </div>
-      <div class="nav-right">
-        <a href="#top" class="nav-link">Home</a>
-        <a href="#impact" class="nav-link">Impact</a>
-        <a href="#programs" class="nav-link">Programs</a>
-        <a href="#data" class="nav-link">Data &amp; Tools</a>
-        <a href="#leadership" class="nav-link">Leadership</a>
-        <a href="#journey" class="nav-link">Journey</a>
-        <a href="#contact" class="nav-link nav-link-primary">Contact</a>
+      <div class="nav-links">
+        <button class="nav-link" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">Home</button>
+        <button class="nav-link" onclick="document.getElementById('impact').scrollIntoView({behavior:'smooth'})">Impact</button>
+        <button class="nav-link" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Programs</button>
+        <button class="nav-link" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Data & Tools</button>
+        <button class="nav-link" onclick="document.getElementById('leadership').scrollIntoView({behavior:'smooth'})">Leadership</button>
+        <button class="nav-link" onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'})">Journey</button>
+        <button class="nav-link primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
       </div>
     </nav>
   </header>
 
-  <main id="top" class="page-shell">
+  <main id="top">
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-main hover-zoom">
-        <div class="hero-main-inner">
-          <div class="hero-eyebrow">
-            <span class="dot"></span>
-            AMAZON ASSISTANT MANAGER → PROGRAM MANAGER PATH
-          </div>
+    <section>
+      <div class="hero">
+        <div class="hero-left card-soft zoom-hover">
           <h1>
-            <span class="sub">Osman (Ozzy) Sherif</span>
-            Data-driven Operations &amp; Program Management
+            <span class="hero-highlight">Program-minded</span> Amazon Fresh leader,
+            turning ops data into PM-style programs.
           </h1>
-          <p class="hero-subline">
-            Amazon Fresh Assistant Manager (MAG5) who treats four-wall grocery like a live program:
-            using data, Excel control sheets, and Amazon Leadership Principles to improve
-            inventory health, shrink, and availability.
+          <p class="hero-tagline">
+            I currently lead multi-department operations at an Amazon Fresh store (MAG5) and
+            run my work like a Program Manager: KPIs, dashboards, cross-team alignment, and
+            repeatable mechanisms. I’m actively preparing for the PMP and targeting L5+
+            program / project management roles.
           </p>
-
           <div class="hero-meta">
-            <div class="hero-meta-item">
-              <span class="icon">📍</span>
-              Based in Hyattsville, MD – open to relocation for the right role
-            </div>
-            <div class="hero-meta-item">
-              <span class="icon">🏪</span>
-              Assistant Manager, Amazon Fresh MAG5 &bull; Multi-department scope
-            </div>
-            <div class="hero-meta-item">
-              <span class="icon">🎯</span>
-              Targeting L4→L5 Program / Project / Data-driven Ops roles
-            </div>
+            <span><span class="pill-dot"></span> Amazon Fresh – Assistant Manager (L4)</span>
+            <span>Hyattsville, MD · Open to relocation</span>
+            <span>PMI-style delivery · Amazon LPs · Data-driven decisions</span>
           </div>
-
-          <div class="pill-highlight">
-            <span class="icon">📈</span>
-            HP Agile 83% → 97%, Expiration Compliance 73% → 95%, Site Demand vs Actuals Rank 41 → 32
-          </div>
-
-          <div class="hero-tags-label">Targeted roles</div>
-          <div class="tag-row">
-            <span class="tag">Program Manager – Global Logistics &amp; Imports</span>
-            <span class="tag">Program Manager – Fresh / Grocery PMO</span>
-            <span class="tag">Program Manager – WW Returns &amp; ReCommerce</span>
-            <span class="tag">Program Manager – AWS Data Center Operations &amp; Training</span>
-            <span class="tag">Ops / Supply Chain Program Manager (Tech-enabled)</span>
-            <span class="tag">Data Analyst / Analytics-driven PM</span>
-          </div>
-
-          <div class="btn-row">
-            <a href="Osman_Sherif_PM_Resume.pdf" class="btn btn-primary" download>
-              <span class="icon">⬇️</span>
-              Download résumé (PDF)
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="Osman-Sherif-Resume.pdf" download>
+              <span class="btn-icon">⬇️</span> Download resume
             </a>
-            <a href="#programs" class="btn btn-secondary">
-              <span class="icon">📁</span>
-              View Amazon programs &amp; projects
-            </a>
+            <button class="btn btn-outline" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+              <span class="btn-icon">📦</span> View Amazon programs &amp; projects
+            </button>
           </div>
-        </div>
-      </div>
-
-      <div class="hero-side">
-        <div class="hero-panel hover-zoom">
-          <div class="hero-panel-inner">
-            <h3>FOUR-WALL OWNERSHIP</h3>
-            <div class="hero-panel-main">
-              <strong>Center Store, Kitchen, Outbound, Front End, Paleo</strong>
-            </div>
-            <p>
-              I lead day-to-day operations across five departments, using the same
-              discipline you’d expect from a Program Manager: clear KPIs, structured
-              cadences, and simple visual reporting.
-            </p>
-            <div class="mini-row">
-              <div class="hero-panel-pill">15–30 associates / shift</div>
-              <div class="hero-panel-pill">Peak: 35+ during major pushes</div>
-              <div class="hero-panel-pill">Multi-team task &amp; ownership tracking in Excel</div>
-            </div>
+          <div class="metric-row">
+            <div class="metric-pill">HP Agile ↑ from low-80s → high-90s</div>
+            <div class="metric-pill">Produce culling ↑ from ~27% → ~72%</div>
+            <div class="metric-pill">Shrink ↓ from ~19% → ~10%</div>
+            <div class="metric-pill">Demand vs Actuals rank ↑ from low-40s → low-30s</div>
           </div>
         </div>
 
-        <div class="card hover-zoom">
-          <div class="badge-soft">
-            <span class="badge-dot"></span>
-            PMP &amp; TECH STACK
+        <div class="hero-right">
+          <div class="card-soft zoom-hover">
+            <div class="section-label">Targeted roles</div>
+            <div class="chip-row">
+              <span class="chip chip-strong">Program Manager (Ops / Supply Chain)</span>
+              <span class="chip">Project Manager / PMO</span>
+              <span class="chip">Data-driven Ops / Business Analyst</span>
+              <span class="chip">AWS / Data Center Operations PM</span>
+              <span class="chip">Worldwide Returns &amp; ReCommerce</span>
+              <span class="chip">Global Logistics / Imports</span>
+            </div>
+            <div style="margin-top:10px;font-size:11px;color:var(--text-muted);">
+              I’m especially interested in roles where I can combine <strong>operations,
+              data, and structured program management</strong> to move KPIs for customers
+              and internal stakeholders.
+            </div>
           </div>
-          <p class="hero-role-tag" style="margin-top:6px;">Building the foundations for long-term PM growth.</p>
-          <ul class="hero-list">
-            <li>
-              <span class="bullet">•</span>
-              <span>Completing 35-hour PMP prep &amp; aligning daily work to PMI process groups.</span>
-            </li>
-            <li>
-              <span class="bullet">•</span>
-              <span>Advanced Excel (pivots, lookups, dashboards), learning SQL &amp; Python for deeper analysis.</span>
-            </li>
-            <li>
-              <span class="bullet">•</span>
-              <span>Using Amazon’s LPs as a checklist for every project: dive deep, simplify, deliver results.</span>
-            </li>
-          </ul>
+
+          <div class="card-soft zoom-hover">
+            <div class="section-label">Tech &amp; analytics stack</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Excel (pivots, lookups, dashboards)</span>
+              <span class="skill-pill">SQL (foundational querying)</span>
+              <span class="skill-pill">Python (Pandas basics)</span>
+              <span class="skill-pill">R (basic analysis &amp; plots)</span>
+              <span class="skill-pill">Smartsheet / task trackers</span>
+              <span class="skill-pill">KPI storytelling &amp; decks</span>
+              <span class="skill-pill">PMP prep (35-hr course in progress)</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- IMPACT AT A GLANCE -->
-    <section id="impact" class="section">
-      <div class="section-kicker">SECTION 2</div>
-      <h2 class="section-title">Impact at a Glance</h2>
+    <section id="impact">
+      <div class="section-label">Section 2</div>
+      <div class="section-header">
+        <div class="section-title">Impact at a glance</div>
+        <div class="pill"><span class="pill-dot"></span> Key KPIs · visual story</div>
+      </div>
       <p class="section-subtitle">
-        A quick visual of how my Amazon Fresh initiatives moved core KPIs over 2025 – focused on execution, inventory health,
-        and demand alignment.
+        How my Amazon Fresh initiatives moved <strong>execution quality, availability, and
+        demand alignment</strong> across 2025. All values are drawn from Inventory Health,
+        INF, SDU, and shrink reports I track in my own Excel control sheets.
       </p>
 
-      <div class="impact-wrapper">
-        <!-- Execution quality -->
-        <div class="impact-card hover-zoom">
-          <div class="impact-title">Execution Quality</div>
-          <div class="impact-heading">Compliance &amp; Shrink</div>
+      <div class="impact-grid">
+        <!-- EXECUTION QUALITY -->
+        <div class="card zoom-hover">
+          <div class="impact-title">Execution quality – compliance &amp; shrink</div>
+          <div class="impact-sub">
+            Building simple mechanisms around standard work and follow-up.
+          </div>
 
-          <div class="metric-row">
-            <div class="metric-label">
-              <span>HP Agile Compliance</span>
-              <span class="value">83% → <span class="delta">97%</span></span>
+          <div class="impact-row">
+            <div class="impact-row-label">
+              <span>HP Agile compliance</span><span>low-80s → high-90s</span>
             </div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:97%;"></div>
-            </div>
-            <div class="metric-caption">
-              Teams routinely meeting HP Agile standards after introducing visual tracking and weekly huddles.
+            <div class="impact-bar-bg">
+              <div class="impact-bar-from" style="width:83%;"></div>
+              <div class="impact-bar-to" style="width:97%;"></div>
             </div>
           </div>
 
-          <div class="metric-row">
-            <div class="metric-label">
-              <span>Produce Culling Compliance</span>
-              <span class="value">27% → <span class="delta">72%</span></span>
+          <div class="impact-row">
+            <div class="impact-row-label">
+              <span>Produce culling compliance</span><span>~27% → ~72%</span>
             </div>
-            <div class="bar-track">
-              <div class="bar-fill secondary" style="width:72%;"></div>
-            </div>
-            <div class="metric-caption">
-              Clear ownership by zone + daily culling checklist cut out-of-code produce risk.
+            <div class="impact-bar-bg">
+              <div class="impact-bar-from" style="width:27%;"></div>
+              <div class="impact-bar-to" style="width:72%;"></div>
             </div>
           </div>
 
-          <div class="metric-row">
-            <div class="metric-label">
-              <span>Expiration Compliance</span>
-              <span class="value">73% → <span class="delta">95%</span></span>
+          <div class="impact-row">
+            <div class="impact-row-label">
+              <span>Expiration compliance</span><span>~73% → ~95%</span>
             </div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:95%;"></div>
-            </div>
-            <div class="metric-caption">
-              Simple SOPs and follow-through reduced expiration-driven shrink.
+            <div class="impact-bar-bg">
+              <div class="impact-bar-from" style="width:73%;"></div>
+              <div class="impact-bar-to" style="width:95%;"></div>
             </div>
           </div>
 
-          <div class="metric-row">
-            <div class="metric-label">
-              <span>Shrink % of Shipped OPS</span>
-              <span class="value">19% → <span class="delta">10%</span></span>
+          <div class="impact-row">
+            <div class="impact-row-label">
+              <span>S hrink % of shipped OPS</span><span>~19% → ~10%</span>
             </div>
-            <div class="bar-track">
-              <div class="bar-fill secondary" style="width:56%;"></div>
-            </div>
-            <div class="metric-caption">
-              Combined impact of culling, expiration control, and better location accuracy.
+            <div class="impact-bar-bg">
+              <div class="impact-bar-from bad" style="width:19%;background:linear-gradient(90deg,#f97316,#b91c1c);"></div>
+              <div class="impact-bar-to" style="width:10%;background:linear-gradient(90deg,#22c55e,#16a34a);"></div>
             </div>
           </div>
 
-          <div class="impact-footnote">
-            These trends come from my own <strong>Excel control sheet</strong>, updated monthly from Inventory Health and shrink reports.
+          <div class="impact-caption">
+            These trends came directly from my <strong>Excel control sheet</strong> where I
+            log monthly compliance and shrink data by department, then use pivots, filters,
+            and charts to drive weekly actions.
           </div>
         </div>
 
-        <!-- Availability & demand -->
-        <div class="impact-card hover-zoom">
-          <div class="impact-title">Availability &amp; Demand Alignment</div>
-          <div class="impact-heading">Gaps, INF &amp; Site Rank</div>
+        <!-- AVAILABILITY & DEMAND ALIGNMENT -->
+        <div class="card zoom-hover">
+          <div class="impact-title">Availability &amp; demand alignment</div>
+          <div class="impact-sub">
+            Connecting <abbr title="Inventory Not Found">INF</abbr>,
+            <abbr title="Same Day Unavailability">SDU</abbr>, gaps, and Demand vs Actuals
+            into one narrative leaders can act on.
+          </div>
 
-          <div class="metric-row">
-            <div class="metric-label">
-              <span>Virtual Gaps per Day</span>
-              <span class="value">2000 → <span class="delta">1500</span></span>
+          <div class="impact-row">
+            <div class="impact-row-label">
+              <span>Virtual gaps per day</span><span>~2000 → ~1500</span>
             </div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:75%;"></div>
-            </div>
-            <div class="metric-caption">
-              Location clean-up and Go-Find rigor reduced how often items appeared “missing” in system.
+            <div class="impact-bar-bg">
+              <div class="impact-bar-from bad" style="width:80%;background:linear-gradient(90deg,#f97316,#b91c1c);"></div>
+              <div class="impact-bar-to" style="width:60%;"></div>
             </div>
           </div>
 
-          <div class="metric-row">
-            <div class="metric-label">
-              <span>Gaps with Stock per Day</span>
-              <span class="value">360 → <span class="delta">150</span></span>
+          <div class="impact-row">
+            <div class="impact-row-label">
+              <span>Gaps with stock per day</span><span>~360 → ~150</span>
             </div>
-            <div class="bar-track">
-              <div class="bar-fill secondary" style="width:42%;"></div>
-            </div>
-            <div class="metric-caption">
-              Fewer “we have it, but not where system thinks” events for pickers and customers.
+            <div class="impact-bar-bg">
+              <div class="impact-bar-from bad" style="width:70%;background:linear-gradient(90deg,#f97316,#b91c1c);"></div>
+              <div class="impact-bar-to" style="width:35%;"></div>
             </div>
           </div>
 
-          <div class="metric-row">
-            <div class="metric-label">
-              <span>Store INF% (Inventory Not Found)</span>
-              <span class="value">~12.7% → <span class="delta">~10.1%</span></span>
+          <div class="impact-row">
+            <div class="impact-row-label">
+              <span>Store INF% (Outbound)</span><span>~12.7% → ~10.1%</span>
             </div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:80%;"></div>
-            </div>
-            <div class="metric-caption">
-              Outbound <strong>INF (Inventory Not Found)</strong> increasingly tied to root causes, not guesswork.
+            <div class="impact-bar-bg">
+              <div class="impact-bar-from bad" style="width:13%;background:linear-gradient(90deg,#f97316,#b91c1c);"></div>
+              <div class="impact-bar-to" style="width:10%;"></div>
             </div>
           </div>
 
-          <div class="metric-row">
-            <div class="metric-label">
-              <span>Demand vs Actuals Rank</span>
-              <span class="value">41–42 → <span class="delta">32</span></span>
+          <div class="impact-row">
+            <div class="impact-row-label">
+              <span>Demand vs Actuals site rank</span><span>41–42 → 32</span>
             </div>
-            <div class="bar-track">
-              <div class="bar-fill secondary" style="width:68%;"></div>
-            </div>
-            <div class="metric-caption">
-              Better execution + availability contributed to a stronger network position by Q4 YTD.
+            <div class="impact-bar-bg">
+              <div class="impact-bar-from bad" style="width:70%;background:linear-gradient(90deg,#f97316,#b91c1c);"></div>
+              <div class="impact-bar-to" style="width:40%;background:linear-gradient(90deg,#22c55e,#16a34a);"></div>
             </div>
           </div>
 
-          <div class="impact-footnote">
-            I use this “before vs after” view in updates so leaders can see how execution, availability, and Demand vs Actuals connect.
+          <div class="impact-caption">
+            I use this “before vs after” view in weekly status notes so leaders can see
+            how <strong>inventory health, availability, and Demand vs Actuals</strong>
+            connect at a glance.
           </div>
         </div>
-      </div>
-
-      <div class="legend-card">
-        <div><strong>Key acronyms</strong></div>
-        <span class="legend-chip"><span class="dot"></span> INF = Inventory Not Found (item in system, not found physically)</span>
-        <span class="legend-chip"><span class="dot"></span> SDU = Same Day Unavailability (customer can’t get item in same-day order)</span>
-        <span class="legend-chip"><span class="dot"></span> OPS = Operational sales volume used in shrink calculations</span>
       </div>
     </section>
 
-    <!-- PROGRAMS & PROJECTS -->
-    <section id="programs" class="section">
-      <div class="section-kicker">SECTION 3</div>
-      <h2 class="section-title">Amazon Programs &amp; Projects</h2>
+    <!-- ANALYSIS GALLERY (PIVOT / PIE / LINE) -->
+    <section>
+      <div class="section-label">Section 3</div>
+      <div class="section-header">
+        <div class="section-title">Analysis gallery – work-sample visuals</div>
+        <div class="pill"><span class="pill-dot"></span> Pivots · charts · category insights</div>
+      </div>
       <p class="section-subtitle">
-        These are real store-level initiatives I owned or co-owned at Amazon Fresh, written in program-management language:
-        scope, levers, KPIs, and results.
+        These are simplified versions of the Excel views I maintain to track
+        <strong>INF, shrink, and category health</strong>. In my actual files I use slicers,
+        timeline filters, and conditional formatting; here I’ve recreated the look in HTML/CSS
+        so you can see how I think about the data.
       </p>
 
-      <div class="program-grid">
-        <!-- Program 1 -->
-        <article class="program-card hover-zoom">
-          <div class="program-badge-row">
-            <span class="program-tag">Inventory Health &amp; Shrink</span>
-            <span class="program-badge">Four-wall store program</span>
+      <div class="analysis-grid">
+        <!-- Pivot-style table -->
+        <div class="card-soft zoom-hover" style="max-height:220px;overflow:auto;">
+          <div class="analysis-title">Pivot: Shrink % by category (Jan–Apr 2025)</div>
+          <div class="impact-sub" style="margin-bottom:4px;">
+            View used in weekly reviews to decide which aisles and teams to focus on.
           </div>
-          <h3>Inventory Health &amp; Shrink Program (MAG5)</h3>
-          <div class="program-meta">
-            Situation: fragmented actions on shrink and inventory quality. No single view tying
-            <strong>HP Agile, culling, expiration, cycle counts,</strong> and shrink.
-          </div>
-          <div class="program-stat-row">
-            <span class="program-stat"><span class="label">HP Agile:</span> 83% → <strong>97%</strong></span>
-            <span class="program-stat"><span class="label">Exp. Compliance:</span> 73% → <strong>95%</strong></span>
-            <span class="program-stat"><span class="label">Shrink % of OPS:</span> 19% → <strong>10%</strong></span>
-          </div>
-          <p class="program-body">
-            I treated inventory health as a program, not a series of disconnected tasks.
-            I built an Excel control sheet, pulled monthly data from Inventory Health and shrink reports,
-            and used that as the single source of truth for four-wall performance.
-          </p>
-          <ul class="program-list">
-            <li><span class="bullet">•</span><span>Consolidated HP Agile, culling, expiration, cycle counts, and shrink into one tracker, with conditional formatting to flag outliers by department.</span></li>
-            <li><span class="bullet">•</span><span>Set weekly rhythms with Center Store, Kitchen, Outbound, Front End, and Paleo leaders to review numbers and assign owners to specific actions.</span></li>
-            <li><span class="bullet">•</span><span>Linked shrink by bucket (removals, expiration, IA) back to specific aisles and processes, turning “we’re high” into targeted fixes.</span></li>
-          </ul>
-          <div class="program-footer">
-            <span class="lp-pill">LPs: Dive Deep, Insist on the Highest Standards, Deliver Results</span>
-            <span>Tools: Excel pivots &amp; charts, control sheet, KPI dashboards</span>
-          </div>
-        </article>
-
-        <!-- Program 2 -->
-        <article class="program-card hover-zoom">
-          <div class="program-badge-row">
-            <span class="program-tag">Outbound Availability</span>
-            <span class="program-badge">Online grocery orders</span>
-          </div>
-          <h3>Outbound Availability – INF &amp; SDU Reduction</h3>
-          <div class="program-meta">
-            Scope: Outbound picking quality for online grocery orders, focused on
-            <strong>INF (Inventory Not Found)</strong> and <strong>SDU (Same Day Unavailability)</strong>.
-          </div>
-          <div class="program-stat-row">
-            <span class="program-stat"><span class="label">Ops-controllable INF:</span> ~90–96% of total</span>
-            <span class="program-stat"><span class="label">Best month INF%:</span> <strong>~4.5%</strong></span>
-          </div>
-          <p class="program-body">
-            I created a monthly Outbound availability tracker that combined store-level INF%, Ops vs Non-Ops split,
-            category mix (Produce, Dairy, Frozen, Snacks, Meat), and attribution data (Last Touch, false pick, inbound).
-          </p>
-          <ul class="program-list">
-            <li><span class="bullet">•</span><span>Used pivot-style views to show which categories drove the most INF and which root causes were most common.</span></li>
-            <li><span class="bullet">•</span><span>Ran focused huddles with Paleo and Center Store to improve bin accuracy, re-stock cadence, and picker behavior on INF.</span></li>
-            <li><span class="bullet">•</span><span>Linked Outbound INF/SDU back to overall Demand vs Actuals, so availability was seen as a business lever, not just a metric.</span></li>
-          </ul>
-          <div class="program-footer">
-            <span class="lp-pill">LPs: Customer Obsession, Dive Deep, Bias for Action</span>
-            <span>Tools: Excel INF/SDU tracker, attribution analysis, category heatmaps</span>
-          </div>
-        </article>
-
-        <!-- Program 3 -->
-        <article class="program-card hover-zoom">
-          <div class="program-badge-row">
-            <span class="program-tag">Demand Alignment</span>
-            <span class="program-badge">Network-level metric</span>
-          </div>
-          <h3>Linking Store Execution to Demand vs Actuals Rank</h3>
-          <div class="program-meta">
-            Situation: <strong>Overall Demand vs Actuals</strong> YTD rank sat in the low 40s,
-            with negative YoY performance. Leaders had fragments of data, but no simple story.
-          </div>
-          <div class="program-stat-row">
-            <span class="program-stat"><span class="label">YTD Rank:</span> 41–42 → <strong>32</strong></span>
-            <span class="program-stat"><span class="label">Q4 QTD YoY:</span> <strong>+381%</strong></span>
-          </div>
-          <p class="program-body">
-            I built a one-page view that combined Demand vs Actuals snapshots with the core execution metrics
-            I already owned (shrink, INF/SDU, gaps, compliance). This made it clear how four-wall execution
-            showed up in a network metric.
-          </p>
-          <ul class="program-list">
-            <li><span class="bullet">•</span><span>Tracked rank and YoY performance by quarter and tied each improvement to specific store initiatives.</span></li>
-            <li><span class="bullet">•</span><span>Brought this dashboard into leadership conversations to move from “what happened” to “which lever do we pull next.”</span></li>
-            <li><span class="bullet">•</span><span>Used the same structure you’d see in a PMO: input metrics, output metric, owner, next experiment.</span></li>
-          </ul>
-          <div class="program-footer">
-            <span class="lp-pill">LPs: Think Big, Dive Deep, Deliver Results</span>
-            <span>Tools: Quarterly performance snapshots, Excel summaries, narrative updates</span>
-          </div>
-        </article>
-
-        <!-- Program 4 -->
-        <article class="program-card hover-zoom">
-          <div class="program-badge-row">
-            <span class="program-tag">Task Planning &amp; Ownership</span>
-            <span class="program-badge">Multi-team execution</span>
-          </div>
-          <h3>Multi-week Task Planning &amp; Ownership Tracker</h3>
-          <div class="program-meta">
-            Problem: tasking was often day-to-day and verbal. Hard to see which tasks repeated,
-            who owned what, and where execution slipped.
-          </div>
-          <div class="program-stat-row">
-            <span class="program-stat"><span class="label">On-time completion:</span> ~68% → <strong>91%</strong></span>
-            <span class="program-stat"><span class="label">Unassigned tasks:</span> <strong>Eliminated</strong></span>
-          </div>
-          <p class="program-body">
-            I built an Excel-based task planner that maps each week, each department, and each associate to
-            specific recurring tasks (cycle counts, culling routes, audits, Outbound checks). It acts like a lightweight PM tool.
-          </p>
-          <ul class="program-list">
-            <li><span class="bullet">•</span><span>Used structured tables and filters so leaders can see exactly which tasks are due today, this week, and next week by department.</span></li>
-            <li><span class="bullet">•</span><span>Added simple status codes (Planned, In-Progress, Completed, At Risk) so we can spot gaps before they appear in KPIs.</span></li>
-            <li><span class="bullet">•</span><span>Share the tracker weekly so every Assistant Manager and PA sees the same plan, reducing overlap and “I thought someone else had it.”</span></li>
-          </ul>
-          <div class="program-footer">
-            <span class="lp-pill">LPs: Ownership, Earn Trust, Insist on the Highest Standards</span>
-            <span>Tools: Excel task dashboard, filters, conditional formatting &amp; simple macros</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- DATA & TOOLS -->
-    <section id="data" class="section">
-      <div class="section-kicker">SECTION 4</div>
-      <h2 class="section-title">How I Work with Data &amp; Tools</h2>
-      <p class="section-subtitle">
-        I don’t just read dashboards – I maintain my own tracking sheets, use Excel like a lightweight BI tool,
-        and am building SQL / Python skills to go deeper when needed.
-      </p>
-
-      <div class="data-layout">
-        <div class="data-notes">
-          <div class="data-badge-row">
-            <span class="metric-pill"><strong>Excel</strong> for  day-to-day analysis &amp; visuals</span>
-            <span class="metric-pill"><strong>SQL</strong> basics for querying structured data</span>
-            <span class="metric-pill"><strong>Python / Pandas</strong> for reproducible analysis (learning)</span>
-          </div>
-          <p>
-            Every month I pull data from Inventory Health, INF/SDU, shrink, and Demand vs Actuals reports
-            and log the key numbers into my own control sheets. That allows me to:
-          </p>
-          <ul>
-            <li>Spot trends early – before they show up as surprises in leadership reviews.</li>
-            <li>Slice data by department (Center Store, Kitchen, Outbound, Front End, Paleo) and by category (Produce, Dairy, Frozen, Snacks, Meat).</li>
-            <li>Connect execution metrics (HP Agile, culling, expiration, cycle counts) directly to outcomes (INF, SDU, shrink %, Demand vs Actuals rank).</li>
-          </ul>
-          <p style="margin-top:8px;">
-            I treat these sheets like a Program Manager would treat a set of program dashboards: simple,
-            repeatable, and designed to support good decisions.
-          </p>
-        </div>
-
-        <div class="grid">
-          <!-- Excel snippet -->
-          <div class="snippet-card hover-zoom">
-            <div class="snippet-inner">
-              <div class="snippet-label">Excel snippet – Inventory health control sheet</div>
-              <div class="snippet-pill">Pivots, lookups, &amp; conditional formatting</div>
-              <div class="snippet-code">
-<span class="snippet-comment">' HP Agile, culling, expiration, shrink by quarter</span>
-<span class="snippet-keyword">=LET</span>(
-  data,   Table_InvHealth,
-  qtr,    data[Quarter],
-  hp,     data[HP_Agile],
-  exp,    data[Expiration_Compliance],
-  shrink, data[Shrink_Pct],
-  <span class="snippet-comment">-- Summary view by quarter</span>
-  <span class="snippet-keyword">CHOOSECOLS</span>(
-    <span class="snippet-keyword">VSTACK</span>({"Qtr","HP_Agile","Exp","Shrink_%"};
-      <span class="snippet-keyword">HSTACK</span>("Q1", <span class="snippet-keyword">AVERAGEIF</span>(qtr,"Q1",hp), <span class="snippet-keyword">AVERAGEIF</span>(qtr,"Q1",exp), <span class="snippet-keyword">AVERAGEIF</span>(qtr,"Q1",shrink));
-      <span class="snippet-keyword">HSTACK</span>("Q4", <span class="snippet-keyword">AVERAGEIF</span>(qtr,"Q4",hp), <span class="snippet-keyword">AVERAGEIF</span>(qtr,"Q4",exp), <span class="snippet-keyword">AVERAGEIF</span>(qtr,"Q4",shrink))
-    ),
-    {1,2,3,4}
-  )
-)</div>
-              <div class="snippet-meta-line">
-                Used to generate quarterly summary tables and charts for HP Agile, expiration, and shrink.
-              </div>
-            </div>
-          </div>
-
-          <!-- Task planner snippet -->
-          <div class="snippet-card hover-zoom">
-            <div class="snippet-inner">
-              <div class="snippet-label">Excel snippet – Task planning &amp; ownership</div>
-              <div class="snippet-pill">Weekly plan, status flags, &amp; filters</div>
-              <div class="snippet-code">
-<span class="snippet-comment">' Calculate % on-time completion by department &amp; week</span>
-<span class="snippet-keyword">=LET</span>(
-  tbl,   Task_Table,
-  wk,    tbl[Week],
-  dept,  tbl[Department],
-  done,  tbl[Status],
-  <span class="snippet-keyword">DROP</span>(
-    <span class="snippet-keyword">UNIQUE</span>(HSTACK(wk,dept)),
-  0)
-)</div>
-              <div class="snippet-meta-line">
-                Behind this, I use pivot tables and slicers so leaders can see completion % by week, by department, and by owner.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Data visuals gallery -->
-      <div class="gallery-grid">
-        <!-- Chart 1: Department KPI bars -->
-        <div class="gallery-card hover-zoom">
-          <div class="gallery-title">Visual – Department KPI snapshot</div>
-          <div class="gallery-metric">Compliance &amp; shrink by department (illustrative)</div>
-          <div class="gallery-chart">
-            <div class="gallery-bar-row">
-              <div class="gallery-bar-label">Center</div>
-              <div class="gallery-bar-track">
-                <div class="gallery-bar-fill" style="width:88%;"></div>
-              </div>
-              <span class="heat-badge good">HP 88%</span>
-            </div>
-            <div class="gallery-bar-row">
-              <div class="gallery-bar-label">Kitchen</div>
-              <div class="gallery-bar-track">
-                <div class="gallery-bar-fill" style="width:82%;"></div>
-              </div>
-              <span class="heat-badge good">Exp 82%</span>
-            </div>
-            <div class="gallery-bar-row">
-              <div class="gallery-bar-label">Outbound</div>
-              <div class="gallery-bar-track">
-                <div class="gallery-bar-fill" style="width:76%;"></div>
-              </div>
-              <span class="heat-badge">INF ~7.9%</span>
-            </div>
-            <div class="gallery-bar-row">
-              <div class="gallery-bar-label">Front</div>
-              <div class="gallery-bar-track">
-                <div class="gallery-bar-fill" style="width:84%;"></div>
-              </div>
-              <span class="heat-badge good">CX 84%</span>
-            </div>
-            <div class="gallery-bar-row">
-              <div class="gallery-bar-label">Paleo</div>
-              <div class="gallery-bar-track">
-                <div class="gallery-bar-fill" style="width:79%;"></div>
-              </div>
-              <span class="heat-badge bad">Shrink 14%</span>
-            </div>
-          </div>
-          <p class="metric-caption" style="margin-top:6px;">
-            I use bars like this in my control sheet to see which department needs attention each week.
-          </p>
-        </div>
-
-        <!-- Chart 2: Category INF pivot-style -->
-        <div class="gallery-card hover-zoom">
-          <div class="gallery-title">Visual – INF by category (Nov 2025)</div>
-          <div class="gallery-metric">What drives Inventory Not Found</div>
-          <table class="gallery-table">
+          <table class="pivot">
             <thead>
               <tr>
                 <th>Category</th>
-                <th>Share of INF</th>
-                <th>Focus</th>
+                <th>Ship OPS ($)</th>
+                <th>S hrink $</th>
+                <th>S hrink %</th>
+                <th>Trend</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Produce</td>
-                <td>21.5%</td>
-                <td><span class="heat-badge bad">Primary focus</span></td>
+                <td>2,450,000</td>
+                <td>-420,000</td>
+                <td>-17.1%</td>
+                <td>⬇︎ improving</td>
               </tr>
               <tr>
                 <td>Dairy</td>
-                <td>6.9%</td>
-                <td><span class="heat-badge">Secondary</span></td>
+                <td>1,320,000</td>
+                <td>-210,000</td>
+                <td>-15.9%</td>
+                <td>⬇︎ improving</td>
+              </tr>
+              <tr>
+                <td>Meat &amp; Seafood</td>
+                <td>1,050,000</td>
+                <td>-190,000</td>
+                <td>-18.1%</td>
+                <td>➡ stable</td>
               </tr>
               <tr>
                 <td>Frozen</td>
-                <td>5.2%</td>
-                <td><span class="heat-badge">Secondary</span></td>
+                <td>880,000</td>
+                <td>-110,000</td>
+                <td>-12.5%</td>
+                <td>⬇︎ improving</td>
               </tr>
               <tr>
                 <td>Snacks</td>
-                <td>5.9%</td>
-                <td><span class="heat-badge">Monitor</span></td>
-              </tr>
-              <tr>
-                <td>Meat</td>
-                <td>5.9%</td>
-                <td><span class="heat-badge bad">Paleo focus</span></td>
+                <td>730,000</td>
+                <td>-75,000</td>
+                <td>-10.3%</td>
+                <td>⬆︎ watch</td>
               </tr>
             </tbody>
           </table>
-          <p class="metric-caption">
-            This pivot-style view helps me frame where to dive deep first in Outbound and Paleo.
+          <div class="impact-caption">
+            In Excel, this is a pivot over monthly shrink exports, with slicers for quarter
+            and department. I highlight the worst three categories and assign owners with
+            follow-up actions.
+          </div>
+        </div>
+
+        <!-- Donut + bar sparkline -->
+        <div class="card-soft zoom-hover">
+          <div class="analysis-title">INF mix &amp; monthly trend (Outbound)</div>
+          <div class="impact-sub" style="margin-bottom:4px;">
+            Combining <abbr title="Inventory Not Found">INF</abbr> by category and month into a
+            single “story” visual.
+          </div>
+
+          <div class="donut-row">
+            <div class="donut">
+              <div class="donut-inner">
+                58%<br/>Fresh
+              </div>
+            </div>
+            <div class="donut-legend">
+              <div class="legend-item"><span class="legend-swatch green"></span>Produce + Paleo (~22%)</div>
+              <div class="legend-item"><span class="legend-swatch yellow"></span>Dairy &amp; Frozen (~12%)</div>
+              <div class="legend-item"><span class="legend-swatch orange"></span>Snacks + Bakery (~14%)</div>
+              <div class="legend-item"><span class="legend-swatch gray"></span>All other (~52%)</div>
+            </div>
+          </div>
+
+          <div class="sparkline-bars">
+            <div class="spark-bar bad" style="height:90%;"></div>
+            <div class="spark-bar" style="height:70%;"></div>
+            <div class="spark-bar" style="height:55%;"></div>
+            <div class="spark-bar" style="height:40%;"></div>
+            <div class="spark-bar" style="height:62%;"></div>
+          </div>
+          <div class="spark-labels">
+            <span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+          </div>
+          <div class="impact-caption">
+            The donut mirrors my Excel pie chart of INF share by category; the bars mirror my
+            line chart of monthly INF%. I use this when explaining why <strong>fresh categories
+            require tighter process control</strong> than center store.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS & PROJECTS -->
+    <section id="projects">
+      <div class="section-label">Section 4</div>
+      <div class="section-header">
+        <div class="section-title">Programs &amp; projects (Amazon Fresh)</div>
+        <div class="pill"><span class="pill-dot"></span> PMI-style · Amazon LPs · multi-dept scope</div>
+      </div>
+      <p class="section-subtitle">
+        Even though my title is Assistant Manager, I run my work like a <strong>Program Manager</strong>:
+        scoped initiatives, clear owners, mechanisms, and KPI-based narratives. These are a sample
+        of four-wall programs I’ve led at MAG5.
+      </p>
+
+      <div class="cards-grid">
+        <!-- Inventory Health & Shrink Program -->
+        <div class="card zoom-hover">
+          <div class="project-tag-row">
+            <span class="tag">Inventory health</span>
+            <span class="tag">Shrink</span>
+            <span class="tag">Center Store · Paleo</span>
+            <span class="tag">Customer Obsession</span>
+          </div>
+          <div class="project-title">Inventory Health &amp; Shrink Program</div>
+          <div class="project-meta">
+            Turned scattered inventory issues into a four-wall program across Center Store,
+            Paleo, and Front End.
+          </div>
+          <ul class="project-list">
+            <li>Built an <strong>Excel control sheet</strong> that combines HP Agile, produce culling,
+                expiration, cycle counts, and shrink % by month.</li>
+            <li>Ran weekly huddles by department, assigning specific aisles / categories to PAs and
+                tracking actions in a task tab.</li>
+            <li>Used the control sheet as a “single source of truth” for leadership updates and
+                root-cause deep dives.</li>
+          </ul>
+          <div class="stat-pill-row">
+            <span class="stat-pill">HP Agile: ~83% → ~97%</span>
+            <span class="stat-pill">Produce culling: ~27% → ~72%</span>
+            <span class="stat-pill">Expiration compliance: ~73% → ~95%</span>
+            <span class="stat-pill">Shrink: ~19% → ~10%</span>
+          </div>
+        </div>
+
+        <!-- Outbound Availability -->
+        <div class="card zoom-hover">
+          <div class="project-tag-row">
+            <span class="tag">Outbound</span>
+            <span class="tag">INF &amp; SDU</span>
+            <span class="tag">Online grocery</span>
+            <span class="tag">Dive Deep</span>
+          </div>
+          <div class="project-title">Outbound Availability – INF &amp; SDU</div>
+          <div class="project-meta">
+            Connected <abbr title="Inventory Not Found">INF</abbr>,
+            <abbr title="Same Day Unavailability">SDU</abbr>, and gaps into one
+            availability program.
+          </div>
+          <ul class="project-list">
+            <li>Created a monthly <strong>INF / SDU tracker</strong> in Excel, splitting Ops-controllable
+                vs non-Ops and slicing by category and attribution (Last Touch, false picks, inbound, stale inventory).</li>
+            <li>Partnered with Outbound leads to standardize “if INF then…” behavior (re-check, alternate
+                locations, escalation) and tie it to coaching.</li>
+            <li>Brought INF / SDU trends into Demand vs Actuals conversations so leaders could see the
+                connection to realized units and customer experience.</li>
+          </ul>
+          <div class="stat-pill-row">
+            <span class="stat-pill">Best month INF ≈ 4.5% vs peaks ≈ 12–13%</span>
+            <span class="stat-pill neutral">~90–96% of INF consistently Ops-controllable</span>
+            <span class="stat-pill neutral">Fresh categories called out as top drivers</span>
+          </div>
+        </div>
+
+        <!-- Demand vs Actuals -->
+        <div class="card zoom-hover">
+          <div class="project-tag-row">
+            <span class="tag">Demand vs Actuals</span>
+            <span class="tag">Site performance</span>
+            <span class="tag">Earn Trust</span>
+          </div>
+          <div class="project-title">Demand vs Actuals – KPI Narrative</div>
+          <div class="project-meta">
+            Helped leadership connect inventory work to the network metric that shows up in
+            WW dashboards.
+          </div>
+          <ul class="project-list">
+            <li>Consolidated INF, SDU, gaps, shrink, and compliance into one
+                <strong>monthly scoreboard</strong> with a clear link to Demand vs Actuals.</li>
+            <li>Used Q1–Q4 trend charts to show progress and keep focus on the highest-impact levers
+                instead of chasing noise.</li>
+            <li>Provided simple graphs for huddles and meetings in a way that mirrored PM reporting:
+                baseline → actions → results.</li>
+          </ul>
+          <div class="stat-pill-row">
+            <span class="stat-pill">YTD rank: 41–42 → 32</span>
+            <span class="stat-pill">Q4 QTD YoY improvement: +381%</span>
+          </div>
+        </div>
+
+        <!-- Task Planning & Workforce Dashboard -->
+        <div class="card zoom-hover">
+          <div class="project-tag-row">
+            <span class="tag">Labor planning</span>
+            <span class="tag">Task management</span>
+            <span class="tag">Kitchen · Center Store · Outbound</span>
+            <span class="tag">Insist on the Highest Standards</span>
+          </div>
+          <div class="project-title">Task Planning &amp; Workforce Dashboard</div>
+          <div class="project-meta">
+            Built an Excel-based mechanism to plan work by week, by department, and by associate.
+          </div>
+          <ul class="project-list">
+            <li>Designed a <strong>task matrix</strong> where each row is a task (e.g., pizza prep, hot bar setup,
+                inbound processing, culling walks), each column is an associate, and completion is tracked daily.</li>
+            <li>Used formulas and conditional formatting to highlight overdue tasks, under-utilized associates,
+                and departments at risk for service or quality misses.</li>
+            <li>Shared the file with fellow Assistant Managers so we could align who owns which tasks and
+                avoid day-of confusion.</li>
+          </ul>
+          <div class="stat-pill-row">
+            <span class="stat-pill neutral">Improved cross-team visibility on daily plan</span>
+            <span class="stat-pill neutral">Enabled proactive coverage for Kitchen &amp; Outbound peaks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS & METHODS -->
+    <section id="tools">
+      <div class="section-label">Section 5</div>
+      <div class="section-header">
+        <div class="section-title">How I work with data &amp; tools</div>
+        <div class="pill"><span class="pill-dot"></span> Excel · SQL · Python · R</div>
+      </div>
+
+      <div class="tools-grid">
+        <!-- Excel / task + KPI tracking -->
+        <div class="card zoom-hover">
+          <div class="tools-title">Excel as a control tower</div>
+          <p class="tools-body">
+            I don’t just consume dashboards – I <strong>own my own views</strong>. For both task
+            planning and KPI tracking I maintain structured workbooks:
+          </p>
+          <ul class="tools-list">
+            <li><strong>KPI sheet:</strong> monthly log of HP Agile, culling, expiration, cycle counts,
+                INF%, SDU%, gaps, shrink and Demand vs Actuals rank, with pivot tables for
+                quarter / department slices.</li>
+            <li><strong>Task matrix:</strong> tab with rows as tasks and columns as associates; completion
+                tracked with data validation and conditional formatting to flag misses.</li>
+            <li><strong>Visuals:</strong> line charts for trends, bar charts for category comparisons, and
+                pie charts for INF / shrink share by department.</li>
+          </ul>
+          <p class="tools-body">
+            These mechanisms give me the same rhythm a Program Manager uses: look at trends,
+            understand drivers, then prioritize actions for the next week.
           </p>
         </div>
 
-        <!-- Chart 3: Task planner -->
-        <div class="gallery-card hover-zoom">
-          <div class="gallery-title">Visual – Weekly task planner</div>
-          <div class="gallery-metric">Associate-level task coverage</div>
-          <div class="task-timeline">
-            <div class="task-row">
-              <div class="task-row-label">Center Store</div>
-              <div class="task-bar-track">
-                <div class="task-bar-fill" style="width:96%;"></div>
-              </div>
-            </div>
-            <div class="task-row">
-              <div class="task-row-label">Kitchen</div>
-              <div class="task-bar-track">
-                <div class="task-bar-fill partial" style="width:86%;"></div>
-              </div>
-            </div>
-            <div class="task-row">
-              <div class="task-row-label">Outbound</div>
-              <div class="task-bar-track">
-                <div class="task-bar-fill" style="width:92%;"></div>
-              </div>
-            </div>
-            <div class="task-row">
-              <div class="task-row-label">Front End</div>
-              <div class="task-bar-track">
-                <div class="task-bar-fill" style="width:90%;"></div>
-              </div>
-            </div>
-            <div class="task-row">
-              <div class="task-row-label">Paleo</div>
-              <div class="task-bar-track">
-                <div class="task-bar-fill late" style="width:78%;"></div>
-              </div>
-            </div>
-          </div>
-          <div class="task-legend">
-            <span class="task-chip"><span class="task-dot"></span> ≥90% tasks completed on time</span>
-            <span class="task-chip"><span class="task-dot late"></span> Tasks at risk or completed late</span>
-          </div>
-          <p class="metric-caption">
-            This mirrors a real Excel dashboard where each row is an associate and each column is a weekly recurring task.
+        <!-- SQL/Python/R style snippets -->
+        <div class="card-soft zoom-hover">
+          <div class="tools-title">SQL / Python / R – analysis mindset</div>
+          <p class="tools-body">
+            I’m still growing my coding skills, but I already use SQL, Python, and R thinking when I
+            structure problems – even if the final work happens in Excel.
           </p>
-        </div>
 
-        <!-- Chart 4: SDU trend -->
-        <div class="gallery-card hover-zoom">
-          <div class="gallery-title">Visual – SDU trend (Outbound)</div>
-          <div class="gallery-metric">Same Day Unavailability over early 2025</div>
-          <div class="gallery-chart">
-            <div class="gallery-bar-row">
-              <div class="gallery-bar-label">Jan</div>
-              <div class="gallery-bar-track">
-                <div class="gallery-bar-fill" style="width:72%;"></div>
-              </div>
-              <span class="heat-badge bad">~12%</span>
-            </div>
-            <div class="gallery-bar-row">
-              <div class="gallery-bar-label">Feb</div>
-              <div class="gallery-bar-track">
-                <div class="gallery-bar-fill" style="width:60%;"></div>
-              </div>
-              <span class="heat-badge">~10%</span>
-            </div>
-            <div class="gallery-bar-row">
-              <div class="gallery-bar-label">Mar</div>
-              <div class="gallery-bar-track">
-                <div class="gallery-bar-fill good" style="height:100%;width:24%;background:linear-gradient(90deg,#22c55e,#16a34a);"></div>
-              </div>
-              <span class="heat-badge good">~4%</span>
-            </div>
+          <div class="code-block">
+<span class="code-comment"># Python · sample of how I'd analyze INF trends</span><br/>
+<span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd<br/>
+inf = pd.read_excel(<span class="code-string">"overall_inf_mag5.xlsx"</span>)<br/>
+<br/>
+<span class="code-comment"># Group by month &amp; category</span><br/>
+summary = (inf<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;.groupby([<span class="code-string">"month"</span>, <span class="code-string">"category"</span>])<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="code-string">"inf_units"</span>].sum()<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;.reset_index())<br/>
+<br/>
+<span class="code-comment"># Example question I ask:</span><br/>
+<span class="code-comment"># "Which 3 categories drove the most INF in November?"</span><br/>
+nov = summary.query(<span class="code-string">"month == '2025-11'"</span>)<br/>
+top3 = nov.sort_values(<span class="code-string">"inf_units"</span>, ascending=<span class="code-keyword">False</span>).head(<span class="code-number">3</span>)<br/>
           </div>
-          <p class="metric-caption">
-            I use small visuals like this to explain how procedural changes in Outbound affected SDU.
+
+          <p class="tools-body" style="margin-top:8px;">
+            In R I recreate some of the same views using <code>ggplot2</code> for line charts and
+            category bar charts. Over time, I want my PM work to include more automated reporting
+            and simulation using these tools.
           </p>
+
+          <div class="skill-pills">
+            <span class="skill-pill">SQL: SELECT/GROUP BY/WHERE</span>
+            <span class="skill-pill">Python: Pandas basics</span>
+            <span class="skill-pill">R: tidyverse plotting</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- LEADERSHIP PRINCIPLES -->
-    <section id="leadership" class="section">
-      <div class="section-kicker">SECTION 5</div>
-      <h2 class="section-title">Leadership Principle Hall of Fame</h2>
-      <p class="section-subtitle">
-        Every program on this page maps directly to Amazon’s Leadership Principles. Here are a few of the strongest connections.
-      </p>
+    <section id="leadership">
+      <div class="section-label">Section 6</div>
+      <div class="section-header">
+        <div class="section-title">Leadership Principle hall of fame</div>
+        <div class="pill"><span class="pill-dot"></span> Stories mapped to Amazon LPs</div>
+      </div>
 
       <div class="lp-grid">
-        <div class="lp-card hover-zoom">
-          <div class="lp-heading">Customer Obsession</div>
-          <div class="lp-title">Outbound INF &amp; SDU Program</div>
-          <div class="lp-metric">
-            Reduced INF spikes in fresh categories and improved SDU during peak ordering periods.
+        <div class="card-soft zoom-hover">
+          <div class="lp-title">Customer Obsession · Deliver Results</div>
+          <div class="lp-sub">
+            Reducing INF and SDU on online grocery orders.
           </div>
-          <ul>
-            <li>Prioritized root causes that directly affected customers’ orders and substitutions.</li>
-            <li>Used INF attribution data to push on pick quality, not just blame “system.”</li>
-          </ul>
+          <div class="lp-story">
+            When INF and SDU were trending high in early 2025, I treated it as a
+            <strong>customer experience problem</strong>, not just a metric. I used my INF
+            attribution analysis to show that most issues were Ops-controllable, then partnered with
+            Outbound to standardize the behavior when items weren’t found. Over time this reduced our
+            worst-case INF months and built better habits on the floor.
+          </div>
         </div>
 
-        <div class="lp-card hover-zoom">
-          <div class="lp-heading">Ownership</div>
-          <div class="lp-title">Four-Wall Inventory Health</div>
-          <div class="lp-metric">
-            Treated HP Agile, culling, expiration, and shrink as one program I’m accountable for.
+        <div class="card-soft zoom-hover">
+          <div class="lp-title">Dive Deep · Insist on the Highest Standards</div>
+          <div class="lp-sub">
+            Inventory health &amp; shrink across Center Store and Paleo.
           </div>
-          <ul>
-            <li>Built and maintained the control sheet myself, instead of waiting for someone else to own it.</li>
-            <li>Linked daily routines to monthly KPIs and held departments accountable to the same numbers.</li>
-          </ul>
+          <div class="lp-story">
+            Instead of treating each defect (gap, stale inventory, write-off) as isolated, I created
+            a <strong>single view</strong> that combined inventory health KPIs and shrink. This let
+            us see which categories were repeatedly failing and where our standard work wasn’t being
+            followed. By insisting on consistent culling and expiration routines, we not only reduced
+            shrink but also improved on-shelf availability.
+          </div>
         </div>
 
-        <div class="lp-card hover-zoom">
-          <div class="lp-heading">Dive Deep</div>
-          <div class="lp-title">INF Category &amp; Attribution Analysis</div>
-          <div class="lp-metric">
-            Broke INF down by category (Produce, Dairy, Frozen, Snacks, Meat) and root cause.
+        <div class="card-soft zoom-hover">
+          <div class="lp-title">Ownership · Bias for Action</div>
+          <div class="lp-sub">
+            Building my own tools instead of waiting for new dashboards.
           </div>
-          <ul>
-            <li>Used Excel pivots and attribution tables to identify high-impact categories.</li>
-            <li>Connected “Last Touch OB pick/checkout” errors to specific training and audits.</li>
-          </ul>
+          <div class="lp-story">
+            Many of the views I needed didn’t exist in a single Amazon tool, so I built my own
+            Excel trackers and visuals. That allowed me to move quickly, test new mechanisms, and
+            come to meetings with <strong>data already summarized</strong> instead of asking
+            someone else to pull it.
+          </div>
         </div>
 
-        <div class="lp-card hover-zoom">
-          <div class="lp-heading">Invent &amp; Simplify</div>
-          <div class="lp-title">Task Planning &amp; Ownership Tracker</div>
-          <div class="lp-metric">
-            Replaced informal tasking with a simple, shared plan everyone can see.
+        <div class="card-soft zoom-hover">
+          <div class="lp-title">Learn and Be Curious · Earn Trust</div>
+          <div class="lp-sub">
+            Growing toward formal Program Management and PMP.
           </div>
-          <ul>
-            <li>Built a reusable template instead of a one-off spreadsheet.</li>
-            <li>Made it easy for any manager to understand “who is doing what” in under a minute.</li>
-          </ul>
-        </div>
-
-        <div class="lp-card hover-zoom">
-          <div class="lp-heading">Learn &amp; Be Curious</div>
-          <div class="lp-title">PMP &amp; Analytics Learning Journey</div>
-          <div class="lp-metric">
-            Applying PMP concepts and building SQL/Python skills on top of strong Excel foundations.
+          <div class="lp-story">
+            I’m working through a 35-hour PMP prep curriculum and teaching myself more SQL,
+            Python, and R on the side. I share what I learn by simplifying the concepts for my
+            peers – for example, converting complex metrics into <strong>one slide or simple
+            chart</strong> everyone can understand.
           </div>
-          <ul>
-            <li>Translating PMBOK ideas (scope, risk, stakeholders) into real store programs.</li>
-            <li>Practicing with real datasets from work, not just classroom examples.</li>
-          </ul>
-        </div>
-
-        <div class="lp-card hover-zoom">
-          <div class="lp-heading">Deliver Results</div>
-          <div class="lp-title">Demand vs Actuals Rank Improvement</div>
-          <div class="lp-metric">
-            Contributed to moving site rank from low-40s to 32 by attacking execution levers.
-          </div>
-          <ul>
-            <li>Connected improvements in shrink and availability to a network KPI that leaders care about.</li>
-            <li>Used data to show progress quarter-over-quarter, not just anecdotes.</li>
-          </ul>
         </div>
       </div>
     </section>
 
     <!-- CAREER JOURNEY -->
-    <section id="journey" class="section">
-      <div class="section-kicker">SECTION 6</div>
-      <h2 class="section-title">Career Journey</h2>
-      <p class="section-subtitle">
-        From healthcare to last-mile to four-wall grocery leadership – each step added skills I now use in program and project work.
-      </p>
+    <section id="journey">
+      <div class="section-label">Section 7</div>
+      <div class="section-header">
+        <div class="section-title">Career journey</div>
+        <div class="pill"><span class="pill-dot"></span> Healthcare → Data → Delivery → Amazon Fresh PM-style leadership</div>
+      </div>
 
-      <div class="timeline hover-zoom">
-        <div class="timeline-header">Path so far</div>
-        <div class="timeline-title">Healthcare → Delivery → Amazon Fresh Assistant Manager → Program Management</div>
-
-        <div class="timeline-body">
-          <div>
-            <ul class="timeline-list">
-              <li class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-main">
-                  <div class="timeline-role">Certified Nursing Assistant</div>
-                  <div class="timeline-meta">Early career &bull; Patient care &amp; high-stakes teamwork</div>
-                  <div class="timeline-desc">
-                    Learned to stay calm under pressure, document carefully, and coordinate with multi-disciplinary teams – skills I still use when leading shifts.
-                  </div>
-                </div>
-              </li>
-
-              <li class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-main">
-                  <div class="timeline-role">Amazon DSP Delivery Associate</div>
-                  <div class="timeline-meta">Last-mile operations &bull; Route &amp; customer focus</div>
-                  <div class="timeline-desc">
-                    Saw Amazon operations from the road: route planning, meeting tight SLAs, and understanding how upstream inventory issues impact the last mile.
-                  </div>
-                </div>
-              </li>
-
-              <li class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-main">
-                  <div class="timeline-role">Assistant Manager – Amazon Fresh (MAG5)</div>
-                  <div class="timeline-meta">Center Store, Kitchen, Outbound, Front End, Paleo</div>
-                  <div class="timeline-desc">
-                    Lead multi-department operations, use data to drive decisions, and run store-level programs in inventory health,
-                    shrink, availability, and task planning.
-                  </div>
-                </div>
-              </li>
-            </ul>
+      <div class="card-soft zoom-hover">
+        <div class="timeline">
+          <!-- PMP / Future -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">PMP Candidate · Program Management Track</div>
+            <div class="timeline-meta">2025–present · Self-directed learning</div>
+            <div class="timeline-body">
+              Completing PMP prep hours, building PM-style mechanisms inside Amazon, and
+              targeting L5+ program / project management roles across Ops, WW Returns &
+              ReCommerce, Global Logistics, AWS Data Center Operations, and data-driven roles.
+            </div>
           </div>
 
-          <div class="timeline-aside">
-            <h4>Now aiming to:</h4>
-            <ul>
-              <li>Step into Program Manager / PMO-style roles where this experience scales across sites or networks.</li>
-              <li>Combine strong four-wall operations understanding with data, Excel, SQL, and PMP discipline.</li>
-              <li>Continue growing in tech-enabled environments like Global Logistics, WW Returns &amp; ReCommerce, or AWS data center operations.</li>
-            </ul>
-            <p class="muted" style="color:#cbd5f5;">
-              This portfolio is a living work sample – it shows how I think, how I structure problems, and how I tie metrics back to real work.
-            </p>
+          <!-- Assistant Manager Amazon Fresh -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">Assistant Manager – Amazon Fresh (MAG5)</div>
+            <div class="timeline-meta">2024–present · L4 · Center Store · Kitchen · Outbound · Front End · Paleo</div>
+            <div class="timeline-body">
+              Lead multi-department operations, task planning, and KPI-driven initiatives. Own
+              inventory health, shrink, and availability programs and translate complex data into
+              clear store narratives and actions.
+            </div>
+          </div>
+
+          <!-- Amazon DSP Driver -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">Delivery Associate – Amazon DSP</div>
+            <div class="timeline-meta">2023–2024 · Last-mile delivery</div>
+            <div class="timeline-body">
+              Delivered hundreds of packages per week while maintaining high delivery quality,
+              route completion, and safety. Built empathy for how upstream decisions affect the
+              last mile and customer experience.
+            </div>
+          </div>
+
+          <!-- University / Data roles -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">University of Maryland – Data &amp; Operations Roles</div>
+            <div class="timeline-meta">During studies · Excel · Python · R · teamwork</div>
+            <div class="timeline-body">
+              Supported projects that required collecting, cleaning, and analyzing data in Excel,
+              Python, and R. Built basic dashboards, wrote simple scripts to automate repetitive
+              tasks, and coordinated with classmates and staff – early experience that now feeds
+              directly into how I run programs at Amazon.
+            </div>
+          </div>
+
+          <!-- CNA -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-role">Certified Nursing Assistant (CNA)</div>
+            <div class="timeline-meta">Healthcare · High-acuity environments</div>
+            <div class="timeline-body">
+              Learned to manage competing priorities, communicate clearly with patients and
+              clinical staff, and operate with high attention to detail. This is where my
+              <strong>customer obsession and bias for action</strong> were first developed.
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="section-kicker">SECTION 7</div>
-      <h2 class="section-title">Let’s Connect</h2>
-      <p class="section-subtitle">
-        I’m open to conversations about internal transfers, stretch projects, and roles that blend operations, data, and program management.
-      </p>
-
-      <div class="contact-card hover-zoom">
-        <div>
-          <p>
-            If you’re hiring for Program Manager, PMO, data-driven Operations, or tech-enabled roles in logistics, grocery, returns,
-            or data centers, I’d love to chat. I’m especially excited about opportunities where I can:
-          </p>
-          <ul class="muted">
-            <li>Own cross-functional programs that connect metrics to day-to-day behaviors.</li>
-            <li>Work closely with analysts and tech teams while staying grounded in operations.</li>
-            <li>Help new teams ramp quickly using clear documentation, task planning, and training.</li>
-          </ul>
-        </div>
-        <div>
-          <div class="contact-links">
-            <a class="contact-chip" href="mailto:osman.sherif.pm@gmail.com">
-              <span class="icon">📧</span>
-              osman.sherif.pm@gmail.com
-            </a>
-            <a class="contact-chip" href="https://www.linkedin.com/in/osman-sherif-1877a51a0" target="_blank" rel="noreferrer">
-              <span class="icon">🔗</span>
-              LinkedIn Profile
-            </a>
-            <a class="contact-chip" href="Osman_Sherif_PM_Resume.pdf" download>
-              <span class="icon">📄</span>
-              Download résumé
-            </a>
-            <a class="contact-chip" href="#programs">
-              <span class="icon">📁</span>
-              Jump to programs &amp; projects
-            </a>
-          </div>
-        </div>
+    <section id="contact">
+      <div class="section-label">Section 8</div>
+      <div class="section-header">
+        <div class="section-title">Let’s connect</div>
+        <div class="pill"><span class="pill-dot"></span> Open to internal transfers &amp; conversations</div>
       </div>
 
-      <footer>
-        © <span id="year">2025</span> Osman (Ozzy) Sherif &middot; Built as a PM-style work sample using plain HTML &amp; CSS.
-      </footer>
+      <div class="card-soft zoom-hover">
+        <p class="tools-body">
+          If you’re hiring for a role where <strong>operations, data, and structured program
+          management</strong> all matter, I’d love to talk. I’m especially interested in
+          opportunities where I can grow from L4 Assistant Manager into an L5+ Program /
+          Project Manager while continuing to deliver measurable results.
+        </p>
+        <div class="contact-row">
+          <div class="contact-pill">📧 <strong>Work:</strong> <a href="mailto:sherosma@amazon.com">sherosma@amazon.com</a></div>
+          <div class="contact-pill">🔗 <a href="https://www.linkedin.com/in/osman-sherif-1877a51a0" target="_blank" rel="noopener noreferrer">LinkedIn: osman-sherif-1877a51a0</a></div>
+          <div class="contact-pill">🌐 Portfolio URL: this page</div>
+        </div>
+      </div>
     </section>
   </main>
-
-  <script>
-    // Set current year in footer (purely cosmetic)
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
