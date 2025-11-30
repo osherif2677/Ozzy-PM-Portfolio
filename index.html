@@ -16,6 +16,7 @@
       --accent-soft: #dbeafe;
       --accent-strong: #1d4ed8;
       --accent-secondary: #10b981;
+      --accent-warm: #f97316;
       --border-subtle: #e5e7eb;
       --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
       --radius-lg: 18px;
@@ -117,167 +118,6 @@
       background: var(--accent-soft);
       color: var(--accent);
       transform: translateY(-1px);
-    }
-
-    /* INTRO SECTION */
-    .intro-section {
-      margin-top: 1.75rem;
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
-      gap: 1.5rem;
-      align-items: stretch;
-      animation: fadeUp 0.5s ease-out both;
-    }
-
-    .intro-card {
-      background: radial-gradient(circle at top left, #eff6ff, #ffffff);
-      border-radius: var(--radius-xl);
-      padding: 1.6rem 1.7rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid #e0e7ff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .intro-card::before {
-      content: "";
-      position: absolute;
-      inset: -20%;
-      background:
-        radial-gradient(circle at top right, rgba(37, 99, 235, 0.12), transparent 55%),
-        radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.12), transparent 60%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .intro-card-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .section-eyebrow {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      color: var(--accent);
-      letter-spacing: 0.16em;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .intro-title {
-      font-size: 1.4rem;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.35rem;
-    }
-
-    .intro-tagline {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .intro-body {
-      font-size: 0.9rem;
-      color: #374151;
-      margin-bottom: 0.75rem;
-    }
-
-    .intro-body strong {
-      color: var(--accent-strong);
-    }
-
-    .intro-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.4rem;
-    }
-
-    .intro-pill {
-      font-size: 0.78rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      color: #374151;
-    }
-
-    .intro-pill.highlight {
-      background: var(--accent-soft);
-      border-color: rgba(37, 99, 235, 0.4);
-      color: var(--accent-strong);
-      font-weight: 500;
-    }
-
-    .intro-side {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .intro-profile-card {
-      background: var(--bg-soft);
-      border-radius: var(--radius-xl);
-      padding: 1.1rem 1.2rem;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
-      font-size: 0.86rem;
-    }
-
-    .intro-profile-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .intro-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      background: conic-gradient(from 240deg, #2563eb, #f97316, #facc15, #22c55e, #2563eb);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.4);
-    }
-
-    .intro-profile-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .intro-uni-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-      background: #111827;
-      color: #f9fafb;
-      font-size: 0.75rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .intro-uni-logo {
-      width: 16px;
-      height: 16px;
-      border-radius: 999px;
-      background: conic-gradient(from 0deg, #dc2626, #fbbf24, #16a34a, #dc2626);
-      border: 1px solid rgba(15, 23, 42, 0.8);
-    }
-
-    .intro-timeline {
-      font-size: 0.78rem;
-      color: #4b5563;
-    }
-
-    .intro-timeline span {
-      display: inline-block;
-      margin-right: 0.3rem;
     }
 
     /* HERO SNAPSHOT */
@@ -590,6 +430,15 @@
       margin-top: 2.6rem;
     }
 
+    .section-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      color: var(--accent);
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
     section h2 {
       font-size: 1.25rem;
       margin-bottom: 0.3rem;
@@ -885,53 +734,91 @@
       animation: growBar 0.9s ease-out forwards;
     }
 
-    /* DEPARTMENT SNAPSHOT */
-    .dept-grid {
+    /* IMPACT AT A GLANCE (bars) */
+    .impact-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.6rem;
-      margin-top: 0.6rem;
+      gap: 1rem;
+      margin-top: 0.75rem;
     }
 
-    .dept-card {
-      font-size: 0.8rem;
-      padding: 0.45rem 0.6rem;
-      border-radius: 12px;
+    .impact-card {
+      background: var(--bg-soft);
+      border-radius: 24px;
+      padding: 1.2rem 1.4rem 1.1rem;
       border: 1px solid #e5e7eb;
-      background: #f9fafb;
-      transition: transform var(--transition-med), box-shadow var(--transition-med),
-                  border-color var(--transition-med), background var(--transition-med);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
     }
 
-    .dept-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
-      border-color: rgba(37, 99, 235, 0.4);
-      background: #ffffff;
+    .impact-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 0.1rem;
     }
 
-    .dept-name {
+    .impact-title {
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .impact-metric {
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .impact-metric-label {
       font-weight: 600;
       margin-bottom: 0.1rem;
     }
 
-    .dept-desc {
-      font-size: 0.78rem;
-      color: #4b5563;
-      margin-bottom: 0.25rem;
+    .impact-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
-    .dept-bar {
-      height: 6px;
+    .impact-bar-track {
+      flex: 1;
+      height: 8px;
       border-radius: 999px;
       background: #e5e7eb;
+      position: relative;
       overflow: hidden;
     }
 
-    .dept-bar-fill {
+    .impact-bar-before,
+    .impact-bar-after {
+      position: absolute;
+      top: 0;
       height: 100%;
       border-radius: inherit;
+      transform-origin: left;
+      animation: growBar 0.9s ease-out forwards;
+    }
+
+    .impact-bar-before {
+      left: 0;
+      background: var(--accent-warm);
+      opacity: 0.8;
+    }
+
+    .impact-bar-after {
+      left: 0;
       background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+    }
+
+    .impact-metric-values {
+      font-size: 0.78rem;
+      color: #4b5563;
+      white-space: nowrap;
+    }
+
+    .impact-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
     }
 
     /* SKILLS/JOURNEY */
@@ -1012,10 +899,6 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-      .intro-section {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -1025,7 +908,8 @@
       .skills-grid,
       .journey-grid,
       .contact-grid,
-      .data-layout {
+      .data-layout,
+      .impact-grid {
         grid-template-columns: minmax(0, 1fr);
       }
 
@@ -1037,10 +921,6 @@
       nav ul {
         justify-content: flex-start;
       }
-
-      .dept-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
     }
 
     @media (max-width: 640px) {
@@ -1048,8 +928,7 @@
         padding-inline: 0.9rem;
       }
 
-      .hero-main,
-      .intro-card {
+      .hero-main {
         padding: 1.4rem 1.25rem 1.45rem;
       }
 
@@ -1078,7 +957,7 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#intro">Intro</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#impact">Impact</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#leadership">Leadership</a></li>
@@ -1092,62 +971,6 @@
 </header>
 
 <main>
-  <!-- INTRO / HOME -->
-  <section id="intro" class="intro-section">
-    <div class="intro-card">
-      <div class="intro-card-inner">
-        <div class="section-eyebrow">Section 1</div>
-        <div class="intro-title">From healthcare to data-driven Amazon operations</div>
-        <p class="intro-tagline">
-          I started in healthcare as a CNA, moved into IT and data support at the University of Maryland,
-          and now lead four-wall operations at Amazon Fresh. The common thread: using data, structure, and care for people
-          to make systems better.
-        </p>
-        <p class="intro-body">
-          Today I’m an <strong>Assistant Manager at Amazon Fresh (MAG5)</strong> who runs Center Store, Kitchen, Paleo,
-          Outbound, and Front End / CX with a <strong>Program Manager mindset</strong>. I treat Inventory Health, shrink,
-          INF/SDU, and Demand vs Actuals as connected programs, not isolated metrics.
-        </p>
-        <p class="intro-body">
-          My next step is to grow into <strong>Program Manager, Project Manager, PMO, or data-focused roles</strong> inside
-          Amazon &mdash; including operations, Fresh, Global Logistics, WW Returns &amp; ReCommerce, Quality Services,
-          and AWS / Data Center training and onboarding.
-        </p>
-
-        <div class="intro-pills">
-          <span class="intro-pill highlight">PMP-minded, PMO-style thinking</span>
-          <span class="intro-pill">Advanced Excel &middot; Learning SQL/Python</span>
-          <span class="intro-pill">Amazon Leadership Principles in daily ops</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="intro-side">
-      <div class="intro-profile-card">
-        <div class="intro-profile-header">
-          <div class="intro-avatar">O</div>
-          <div>
-            <div style="font-weight:600;">Osman (Ozzy) Sherif</div>
-            <div class="intro-profile-meta">Assistant Manager &middot; Amazon Fresh (MAG5)</div>
-          </div>
-        </div>
-
-        <div class="intro-uni-badge">
-          <div class="intro-uni-logo"></div>
-          <span>University of Maryland · IT &amp; Data Experience</span>
-        </div>
-
-        <div class="intro-timeline">
-          <span>Healthcare (CNA) ➝</span>
-          <span>IT &amp; data support at UMD ➝</span>
-          <span>Amazon DSP driver ➝</span>
-          <span>Amazon Fresh Assistant Manager ➝</span>
-          <span>Program / Project / Data roles</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- HERO SNAPSHOT -->
   <section class="hero">
     <div class="hero-main">
@@ -1190,15 +1013,16 @@
           <div class="tag-list">
             <span class="tag highlight">Program Manager (Ops / Fresh / WW Ops)</span>
             <span class="tag highlight">Project Manager / PMO</span>
-            <span class="tag">Data Analysis / Analytics-focused PM</span>
+            <span class="tag">Data Analyst / Data Analytics</span>
+            <span class="tag">Data-focused PM / Analytics PM</span>
             <span class="tag">Tech-enabled Operations</span>
-            <span class="tag">AWS / Data Center Onboarding</span>
+            <span class="tag">AWS / Data Center Operations</span>
           </div>
         </div>
 
         <p class="hero-note">
-          Based in Hyattsville, MD. Open to internal moves into Program Manager, Project Manager, PMO, Quality Services,
-          Global Logistics, WW Returns &amp; ReCommerce, and AWS / Data Center operations and data-focused roles.
+          Based in Hyattsville, MD. Open to internal moves and travel/relocation for the right opportunity across
+          Amazon operations, Global Logistics, WW Returns &amp; ReCommerce, Quality Services, and AWS Data Center Operations.
         </p>
       </div>
     </div>
@@ -1251,149 +1075,120 @@
   <!-- IMPACT SECTION -->
   <section id="impact">
     <div class="section-eyebrow">Section 2</div>
-    <h2>Impact at a Glance – Four-Wall View</h2>
-    <p class="section-subtitle">Storewide KPIs + department focus (Center Store, Kitchen, Paleo, Outbound, Front End / CX).</p>
+    <h2>Impact at a Glance</h2>
+    <p class="section-subtitle">
+      Quick view of how my Amazon Fresh initiatives moved core KPIs over 2025.
+    </p>
 
-    <div class="card-grid-2">
-      <div class="card">
-        <div class="card-kicker">Execution &amp; Shrink</div>
-        <div class="card-title">Compliance &amp; Shrink Trend</div>
-        <p class="data-highlight">
-          I treat Inventory Health and shrink as a single program across Center Store, Kitchen, Paleo, Outbound,
-          and Front End / CX.
-        </p>
+    <div class="impact-grid">
+      <!-- LEFT: Execution Quality -->
+      <div class="impact-card">
+        <div class="impact-eyebrow">Execution Quality</div>
+        <div class="impact-title">Compliance &amp; Shrink</div>
 
-        <div class="data-caption">Quarterly execution overview (MAG5)</div>
-        <table class="data-table">
-          <thead>
-          <tr>
-            <th>Quarter</th>
-            <th>HP Agile</th>
-            <th>Produce Culling</th>
-            <th>Expiration</th>
-            <th>S hrink %</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>Q1&nbsp;2025</td>
-            <td>83%</td>
-            <td>27%</td>
-            <td>73%</td>
-            <td>19%</td>
-          </tr>
-          <tr>
-            <td>Q2&nbsp;2025</td>
-            <td>90%</td>
-            <td>57%</td>
-            <td>86%</td>
-            <td>~16%</td>
-          </tr>
-          <tr>
-            <td>Q3&nbsp;2025</td>
-            <td>95%</td>
-            <td>49%</td>
-            <td>98%</td>
-            <td>~14%</td>
-          </tr>
-          <tr>
-            <td>Q4&nbsp;2025 (partial)</td>
-            <td>97%</td>
-            <td>72%</td>
-            <td>95%</td>
-            <td>10%</td>
-          </tr>
-          </tbody>
-        </table>
-
-        <div class="mini-chart-stack">
-          <div class="mini-chart-row">
-            <span>Execution lift</span>
-            <div class="mini-bar"><div class="mini-bar-fill" style="width: 100%;"></div></div>
-          </div>
-          <div class="mini-chart-row">
-            <span>S hrink reduction</span>
-            <div class="mini-bar"><div class="mini-bar-fill" style="width: 80%;"></div></div>
+        <div class="impact-metric">
+          <div class="impact-metric-label">HP Agile Compliance</div>
+          <div class="impact-bar-row">
+            <div class="impact-bar-track">
+              <div class="impact-bar-before" style="width:83%;"></div>
+              <div class="impact-bar-after" style="width:97%; opacity:0.9;"></div>
+            </div>
+            <div class="impact-metric-values">83% → 97%</div>
           </div>
         </div>
-      </div>
 
-      <div class="card">
-        <div class="card-kicker">Availability &amp; Demand</div>
-        <div class="card-title">Gaps, INF &amp; Demand vs Actuals</div>
-        <p class="data-highlight">
-          I connect gaps, INF, SDU, shrink, and Demand vs Actuals so leaders can see how store execution impacts
-          realized demand.
-        </p>
+        <div class="impact-metric">
+          <div class="impact-metric-label">Produce Culling Compliance</div>
+          <div class="impact-bar-row">
+            <div class="impact-bar-track">
+              <div class="impact-bar-before" style="width:27%;"></div>
+              <div class="impact-bar-after" style="width:72%; opacity:0.9;"></div>
+            </div>
+            <div class="impact-metric-values">27% → 72%</div>
+          </div>
+        </div>
 
-        <div class="data-caption">Availability &amp; demand alignment</div>
-        <ul class="card-body" style="margin-left:1.1rem;">
-          <li><strong>Virtual gaps</strong> reduced from ~2,000/day → ~1,500/day.</li>
-          <li><strong>Gaps with stock</strong> cut from ~360/day → ~150/day.</li>
-          <li><strong>Store INF%</strong> improved from ~12.7% (Q1) → ~10.1% (Q4 partial).</li>
-          <li><strong>Demand vs Actuals rank</strong> moved from low-40s → 32 with Q4 QTD +381% YoY.</li>
-        </ul>
+        <div class="impact-metric">
+          <div class="impact-metric-label">Expiration Compliance</div>
+          <div class="impact-bar-row">
+            <div class="impact-bar-track">
+              <div class="impact-bar-before" style="width:73%;"></div>
+              <div class="impact-bar-after" style="width:95%; opacity:0.9;"></div>
+            </div>
+            <div class="impact-metric-values">73% → 95%</div>
+          </div>
+        </div>
 
-        <p class="data-caption">
-          I bring this “before vs after” view into status updates so we can prioritize the levers that actually change
-          demand realization.
+        <div class="impact-metric">
+          <div class="impact-metric-label">Shrink % of Shipped OPS</div>
+          <div class="impact-bar-row">
+            <div class="impact-bar-track">
+              <div class="impact-bar-before" style="width:90%;"></div>
+              <div class="impact-bar-after" style="width:45%; opacity:0.9;"></div>
+            </div>
+            <div class="impact-metric-values">19% → 10%</div>
+          </div>
+        </div>
+
+        <p class="impact-note">
+          These trends came from my own <strong>Excel control sheet</strong>, fed monthly from Inventory Health and
+          shrink reports.
         </p>
       </div>
-    </div>
 
-    <!-- Department snapshot -->
-    <div class="card" style="margin-top:1.1rem;">
-      <div class="card-kicker">Department focus</div>
-      <div class="card-title">How I think about each part of the store</div>
-      <p class="section-subtitle" style="margin-bottom:0.6rem;">
-        Same PM mindset, different levers by department. These are the kinds of focus areas I track and coach to.
-      </p>
-      <div class="dept-grid">
-        <div class="dept-card">
-          <div class="dept-name">Center Store</div>
-          <div class="dept-desc">
-            Focus on location accuracy, cycle counts, planogram integrity, and reducing gaps-with-stock across aisles.
-          </div>
-          <div class="dept-bar">
-            <div class="dept-bar-fill" style="width: 85%;"></div>
+      <!-- RIGHT: Availability & Demand Alignment -->
+      <div class="impact-card">
+        <div class="impact-eyebrow">Availability &amp; Demand Alignment</div>
+        <div class="impact-title">Gaps, INF &amp; Site Rank</div>
+
+        <div class="impact-metric">
+          <div class="impact-metric-label">Virtual Gaps per Day</div>
+          <div class="impact-bar-row">
+            <div class="impact-bar-track">
+              <div class="impact-bar-before" style="width:100%;"></div>
+              <div class="impact-bar-after" style="width:75%; opacity:0.9;"></div>
+            </div>
+            <div class="impact-metric-values">2000 → 1500</div>
           </div>
         </div>
-        <div class="dept-card">
-          <div class="dept-name">Kitchen</div>
-          <div class="dept-desc">
-            Manage production planning, waste, and freshness standards for prepared foods while maintaining service speed.
-          </div>
-          <div class="dept-bar">
-            <div class="dept-bar-fill" style="width: 78%;"></div>
-          </div>
-        </div>
-        <div class="dept-card">
-          <div class="dept-name">Paleo (Produce + Meat &amp; Seafood)</div>
-          <div class="dept-desc">
-            Tighten date audits, culling routines, and display standards to lower expiration-driven shrink.
-          </div>
-          <div class="dept-bar">
-            <div class="dept-bar-fill" style="width: 90%;"></div>
+
+        <div class="impact-metric">
+          <div class="impact-metric-label">Gaps with Stock per Day</div>
+          <div class="impact-bar-row">
+            <div class="impact-bar-track">
+              <div class="impact-bar-before" style="width:100%;"></div>
+              <div class="impact-bar-after" style="width:42%; opacity:0.9;"></div>
+            </div>
+            <div class="impact-metric-values">360 → 150</div>
           </div>
         </div>
-        <div class="dept-card">
-          <div class="dept-name">Outbound</div>
-          <div class="dept-desc">
-            Reduce INF/SDU by improving pick accuracy, location checks, and escalation on high-risk SKUs in fresh categories.
-          </div>
-          <div class="dept-bar">
-            <div class="dept-bar-fill" style="width: 88%;"></div>
-          </div>
-        </div>
-        <div class="dept-card">
-          <div class="dept-name">Front End / CX</div>
-          <div class="dept-desc">
-            Protect customer experience at checkout and dashcart, ensuring gaps and INF don’t show up at the last step.
-          </div>
-          <div class="dept-bar">
-            <div class="dept-bar-fill" style="width: 82%;"></div>
+
+        <div class="impact-metric">
+          <div class="impact-metric-label">Store INF% (Outbound)</div>
+          <div class="impact-bar-row">
+            <div class="impact-bar-track">
+              <div class="impact-bar-before" style="width:100%;"></div>
+              <div class="impact-bar-after" style="width:80%; opacity:0.9;"></div>
+            </div>
+            <div class="impact-metric-values">~12.7% → ~10.1%</div>
           </div>
         </div>
+
+        <div class="impact-metric">
+          <div class="impact-metric-label">Demand vs Actuals Rank</div>
+          <div class="impact-bar-row">
+            <div class="impact-bar-track">
+              <div class="impact-bar-before" style="width:90%;"></div>
+              <div class="impact-bar-after" style="width:60%; opacity:0.9;"></div>
+            </div>
+            <div class="impact-metric-values">41–42 → 32</div>
+          </div>
+        </div>
+
+        <p class="impact-note">
+          I brought this “before vs after” view into status updates so leaders could see in <strong>one glance</strong>
+          how execution, availability, and Demand vs Actuals connected.
+        </p>
       </div>
     </div>
   </section>
@@ -1486,7 +1281,6 @@
             <div class="project-role">Amazon Fresh · Assistant Manager (MAG5)</div>
             <div class="project-title">Paleo Freshness &amp; Shrink Focus</div>
           </div>
-          <span class="badge"><span class="badge-dot"></span>Produce + Meat &amp; Seafood</span>
         </div>
         <div class="project-meta">2025 · Paleo (Produce + Meat &amp; Seafood)</div>
         <div class="project-body">
@@ -1509,6 +1303,41 @@
             <span class="pill blue">Dive Deep</span>
             <span class="pill purple">Invent &amp; Simplify</span>
             <span class="pill green">Customer Obsession</span>
+            <span class="pill orange">Deliver Results</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4 – Task Management -->
+      <article class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-role">Amazon Fresh · Assistant Manager (MAG5)</div>
+            <div class="project-title">Task Management &amp; Associate Accountability</div>
+          </div>
+          <span class="badge"><span class="badge-dot"></span>Multi-team planning</span>
+        </div>
+        <div class="project-meta">2025 · Center Store, Paleo, Outbound, Front End / CX</div>
+        <div class="project-body">
+          <ul>
+            <li><strong>Problem:</strong> Daily work was reactive; it was hard to see which tasks were completed, blocked, or dropped across multiple assistant managers.</li>
+            <li><strong>Mechanism:</strong> Built an Excel-based task dashboard where each row is an associate-day, each column is a critical task, and completion is tracked in real time.</li>
+            <li><strong>Execution:</strong> Pre-planned weekly task lists based on the schedule, shared the workbook with other AMs, and used conditional formatting and filters to review completion at mid-shift and end of day.</li>
+          </ul>
+          <p><strong>Results:</strong> Improved completion of priority tasks (cycle counts, culling, recovery, bin checks) and made it easier to coach associates and AMs with data instead of memory.</p>
+
+          <div class="project-details-label">Details (STAR + Leadership Principles)</div>
+          <ul class="project-details-list">
+            <li><strong>Situation (Ownership):</strong> Multiple managers shared departments, but there was no single view of who owned which tasks.</li>
+            <li><strong>Task (Invent &amp; Simplify):</strong> Create a lightweight system to plan work a week ahead and track completion without new tools.</li>
+            <li><strong>Actions (Dive Deep):</strong> Built an Excel dashboard that integrates schedule data, task templates by department, and completion tracking.</li>
+            <li><strong>Results (Deliver Results):</strong> Shift huddles became more focused, and leaders could see which teams consistently hit their tasks and which needed support.</li>
+          </ul>
+
+          <div class="pill-row">
+            <span class="pill blue">Dive Deep</span>
+            <span class="pill green">Ownership</span>
+            <span class="pill purple">Invent &amp; Simplify</span>
             <span class="pill orange">Deliver Results</span>
           </div>
         </div>
@@ -1562,8 +1391,9 @@
         <div class="lp-title">Building my own mechanisms</div>
         <p class="lp-tagline">Control sheets and routines built without being asked.</p>
         <p class="lp-body">
-          I built and maintain my own Excel control sheets, trackers, and visuals so I can manage my store like a
-          program owner. That means I walk into each week knowing where to focus, not waiting for someone else’s report.
+          I built and maintain my own Excel control sheets, task dashboards, trackers, and visuals so I can manage my
+          store like a program owner. That means I walk into each week knowing where to focus, not waiting for someone
+          else’s report.
         </p>
       </article>
 
@@ -1572,8 +1402,8 @@
         <div class="lp-title">Simple playbooks over complex tools</div>
         <p class="lp-tagline">Mechanisms that front-line associates can actually use.</p>
         <p class="lp-body">
-          Instead of asking for new systems, I created simple checklists and “INF playbooks” (re-check, alternate
-          location, escalate) that pickers and leads could apply right away. The goal is always adoption, not just design.
+          Instead of asking for new systems, I created simple checklists, “INF playbooks” (re-check, alternate
+          location, escalate), and Excel-based task boards that pickers and leads could apply right away.
         </p>
       </article>
 
@@ -1611,6 +1441,7 @@
             <li>Maintain monthly trackers for HP Agile, culling, expiration, gaps, INF%, SDU%, and shrink%.</li>
             <li>Use pivots and filters to isolate Paleo vs Center Store vs Kitchen vs Outbound vs Front End / CX.</li>
             <li>Break down Outbound INF by category (Produce, Dairy, Frozen, Snacks, Meat) and attribution (Last Touch, false picks, inbound delays).</li>
+            <li><strong>Task dashboard:</strong> Use an Excel workbook to pre-plan weekly tasks by associate and department, track completion, and identify where follow-up is needed.</li>
             <li>Bring a one-page “Q1→Q4 trend” view into updates with leaders.</li>
           </ul>
         </div>
@@ -1668,7 +1499,7 @@
             Examples of how I’d structure the same store data across tools.
           </p>
 
-          <div class="code-label">Excel snippets</div>
+          <div class="code-label">Excel snippets (KPI tracking)</div>
           <div class="code-snippet">
 =SUMIFS([INF_Units],[Dept],"Paleo",[Month],$B$1)
 <!-- Highlight Paleo SKUs driving INF in a given month -->
@@ -1678,6 +1509,18 @@
 
 =AVERAGEIFS([Shrink_Pct],[Quarter],$C$2)
 <!-- Track shrink trends quarter over quarter -->
+          </div>
+
+          <div class="code-label" style="margin-top:0.5rem;">Excel snippets (task dashboard)</div>
+          <div class="code-snippet">
+=COUNTIF($E2:$L2,"Done") / COUNTA($E$1:$L$1)
+<!-- Completion rate for one associate's shift -->
+
+=IF($C2="Center Store",INDEX(TaskList!$B:$B,MATCH("Center Store",$A:$A,0)),"")
+<!-- Pull default tasks by department -->
+
+=IF([@Completed]="Yes","",TODAY()-[@DueDate])
+<!-- Days past due for follow-up -->
           </div>
 
           <div class="code-label" style="margin-top:0.5rem;">SQL-style aggregation</div>
@@ -1732,7 +1575,7 @@ print(high_inf)
         <div class="card-title">Program &amp; Project Management</div>
         <ul class="card-body" style="margin-left:1.1rem;">
           <li>Define problem statements, scope, and KPIs (INF%, HP Agile, shrink%, Demand vs Actuals rank).</li>
-          <li>Build simple, repeatable mechanisms (control sheets, weekly routines, playbooks).</li>
+          <li>Build simple, repeatable mechanisms (control sheets, weekly routines, playbooks, task dashboards).</li>
           <li>Track progress quarter-over-quarter and report concisely.</li>
           <li>Use data to prioritize work and sequence initiatives.</li>
         </ul>
@@ -1780,7 +1623,7 @@ print(high_inf)
         <ul class="card-body" style="margin-left:1.1rem;">
           <li>PMP-eligible and actively learning PMI-aligned practices and artifacts.</li>
           <li>Applying program-style thinking in my current Assistant Manager role.</li>
-          <li>Targeting internal Program Manager, PMO, Quality Services, Global Logistics, WW R&amp;R, and AWS Data Center roles.</li>
+          <li>Targeting internal Program Manager, PMO, Quality Services, Global Logistics, WW R&amp;R, and AWS Data Center Operations roles.</li>
         </ul>
       </div>
     </div>
@@ -1800,7 +1643,7 @@ print(high_inf)
         <div class="journey-meta">Chevy Chase, MD · Jan 2025 – Present</div>
         <div class="journey-tagline">
           Lead full-store operations across Center Store, Kitchen, Paleo, Outbound, and Front End / CX; run inventory,
-          shrink, and availability programs with measurable before/after results.
+          shrink, availability, and task-planning programs with measurable before/after results.
         </div>
         <div class="pill-row">
           <span class="pill blue">Program Management</span>
@@ -1910,14 +1753,14 @@ print(high_inf)
         </div>
         <div class="contact-item">
           <div class="contact-label">Location</div>
-          <div>Hyattsville, Maryland, United States</div>
+          <div>Hyattsville, Maryland, United States &middot; open to travel/relocation</div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-title">What I’m looking for</div>
         <ul class="card-body" style="margin-left:1.1rem;">
-          <li>L4→L5 internal moves into Program Manager, Project Manager, PMO, Quality Services, Global Logistics, WW R&amp;R, or AWS Data Center roles.</li>
+          <li>L4→L5 internal moves into Program Manager, Project Manager, PMO, Quality Services, Global Logistics, WW R&amp;R, or AWS Data Center Operations roles.</li>
           <li>Opportunities where I can own programs end-to-end, from metrics and problem definition to execution and reporting.</li>
           <li>Teams that value Amazon Leadership Principles, data-driven decision making, and simple, effective mechanisms.</li>
         </ul>
@@ -1931,4 +1774,3 @@ print(high_inf)
 </main>
 </body>
 </html>
-
