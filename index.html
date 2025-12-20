@@ -2,398 +2,1166 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ozzy — Senior Product / Program Management Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ozzy Sherif — PM Portfolio (Operational Case Studies)</title>
 
-  <!-- Core Styles -->
-  <link rel="stylesheet" href="assets/css/core.css" />
-  <link rel="stylesheet" href="assets/css/dashboard.css" />
+  <style>
+    :root{
+      --bg0:#071626;
+      --bg1:#0b2236;
+      --panel:#0f2c45;
+      --panel2:#123653;
+      --ink:#e9f2ff;
+      --muted:#a9c0da;
+      --line:rgba(255,255,255,.10);
+      --line2:rgba(255,255,255,.16);
+      --accent:#58c6ff;
+      --accent2:#9ee3ff;
+      --good:#2fd07e;
+      --warn:#ffb020;
+      --bad:#ff5a6c;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius:14px;
+      --radius2:18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    * { box-sizing:border-box; }
+    html, body { height:100%; }
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--ink);
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(88,198,255,.10), transparent 60%),
+                  radial-gradient(900px 600px at 80% 0%, rgba(47,208,126,.10), transparent 55%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      line-height:1.55;
+    }
+
+    a{ color:var(--accent2); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    /* Layout */
+    .shell{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      min-height:100vh;
+    }
+
+    /* Sidebar */
+    .side{
+      position:sticky;
+      top:0;
+      height:100vh;
+      padding:22px 18px;
+      border-right:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(18,54,83,.25), rgba(7,22,38,.10));
+      overflow:auto;
+    }
+    .brand{
+      padding:14px 14px 10px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: rgba(15,44,69,.45);
+      box-shadow: var(--shadow);
+    }
+    .brand h1{
+      margin:0;
+      font-size:20px;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .brand .title{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .meta{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background: rgba(15,44,69,.35);
+    }
+    .meta .row{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      padding:6px 0;
+      border-bottom:1px dashed rgba(255,255,255,.08);
+      font-size:12.5px;
+    }
+    .meta .row:last-child{ border-bottom:none; }
+    .meta .k{ color:var(--muted); }
+    .meta .v{ font-family:var(--mono); font-size:12px; opacity:.95; }
+
+    .nav{
+      margin-top:14px;
+      padding:10px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: rgba(15,44,69,.35);
+    }
+    .nav button{
+      width:100%;
+      text-align:left;
+      padding:10px 10px;
+      margin:6px 0;
+      border-radius:12px;
+      border:1px solid rgba(88,198,255,.25);
+      background: transparent;
+      color: var(--accent2);
+      font-weight:750;
+      cursor:pointer;
+      transition: .18s ease;
+    }
+    .nav button:hover{
+      background: rgba(88,198,255,.12);
+      border-color: rgba(88,198,255,.55);
+    }
+    .nav button.active{
+      background: rgba(88,198,255,.18);
+      border-color: rgba(88,198,255,.80);
+      color: var(--ink);
+    }
+
+    .searchBox{
+      margin-top:12px;
+      padding:10px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: rgba(15,44,69,.35);
+    }
+    .searchBox label{
+      font-size:12px;
+      color:var(--muted);
+      display:block;
+      margin-bottom:8px;
+    }
+    .searchBox input{
+      width:100%;
+      padding:10px 10px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(7,22,38,.35);
+      color:var(--ink);
+      outline:none;
+    }
+    .searchBox input:focus{
+      border-color: rgba(88,198,255,.70);
+      box-shadow: 0 0 0 4px rgba(88,198,255,.10);
+    }
+    .links{
+      margin-top:12px;
+      padding:10px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: rgba(15,44,69,.35);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      font-size:13px;
+    }
+    .pillRow{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(18,54,83,.35);
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: var(--accent);
+      display:inline-block;
+    }
+
+    /* Main */
+    .main{
+      padding:28px 28px 70px;
+      overflow:auto;
+    }
+    .hero{
+      padding:20px 22px;
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      background: linear-gradient(135deg, rgba(18,54,83,.55), rgba(15,44,69,.35));
+      box-shadow: var(--shadow);
+    }
+    .hero h2{
+      margin:0;
+      font-size:26px;
+      font-weight:950;
+      letter-spacing:.2px;
+    }
+    .hero p{
+      margin:10px 0 0;
+      color:var(--muted);
+      max-width:1050px;
+    }
+
+    .grid2{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+    }
+    @media (max-width: 980px){
+      .shell{ grid-template-columns: 1fr; }
+      .side{ position:relative; height:auto; }
+      .grid2{ grid-template-columns:1fr; }
+    }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      background: rgba(15,44,69,.35);
+      padding:18px 18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.25);
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:16px;
+      color:var(--accent2);
+      letter-spacing:.2px;
+    }
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width: 1100px){
+      .kpis{ grid-template-columns: repeat(2, minmax(180px, 1fr)); }
+    }
+    .kpi{
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(18,54,83,.28);
+    }
+    .kpi .label{ color:var(--muted); font-size:12px; }
+    .kpi .value{ font-size:20px; font-weight:900; margin-top:6px; }
+    .kpi .hint{ color:var(--muted); font-size:12px; margin-top:6px; }
+
+    .tabs{
+      margin-top:18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .tab{
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(88,198,255,.28);
+      background: transparent;
+      color:var(--accent2);
+      cursor:pointer;
+      font-weight:850;
+      transition:.18s ease;
+    }
+    .tab:hover{ background: rgba(88,198,255,.10); border-color: rgba(88,198,255,.55); }
+    .tab.active{ background: rgba(88,198,255,.16); border-color: rgba(88,198,255,.88); color:var(--ink); }
+
+    .panel{
+      margin-top:16px;
+      padding:18px 18px;
+      border-radius:var(--radius2);
+      border:1px solid var(--line);
+      background: rgba(15,44,69,.30);
+    }
+    .panel h4{
+      margin:0 0 10px;
+      font-size:15px;
+      color:var(--accent2);
+    }
+    .muted{ color:var(--muted); }
+
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 980px){ .twoCol{ grid-template-columns:1fr; } }
+
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:var(--ink);
+    }
+    .list li{ margin:7px 0; }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(18,54,83,.26);
+      font-size:12px;
+      color:var(--muted);
+      margin-right:8px;
+      margin-top:8px;
+    }
+
+    .tableWrap{ overflow:auto; border-radius:16px; border:1px solid var(--line); }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:900px;
+      background: rgba(7,22,38,.25);
+    }
+    th, td{
+      padding:12px 12px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      vertical-align:top;
+      font-size:13px;
+    }
+    th{
+      position:sticky;
+      top:0;
+      background: rgba(18,54,83,.80);
+      color:var(--accent2);
+      text-align:left;
+      font-size:12px;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+    }
+    td .mini{ color:var(--muted); font-size:12px; margin-top:4px; }
+    code.inline{
+      font-family:var(--mono);
+      font-size:12px;
+      padding:3px 6px;
+      border-radius:8px;
+      background: rgba(88,198,255,.10);
+      border:1px solid rgba(88,198,255,.20);
+      color:var(--accent2);
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(300px, 1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){ .gallery{ grid-template-columns: 1fr; } }
+    figure{
+      margin:0;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(7,22,38,.20);
+    }
+    figure img{
+      width:100%;
+      display:block;
+      cursor:pointer;
+    }
+    figcaption{
+      padding:10px 12px;
+      color:var(--muted);
+      font-size:12.5px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+
+    /* Accordions */
+    details{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(18,54,83,.22);
+      padding:12px 12px;
+      margin-top:10px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      color:var(--accent2);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{ color:var(--muted); margin:10px 0 0; }
+
+    /* Modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,.76);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:1000;
+    }
+    .modal.open{ display:flex; }
+    .modalBox{
+      max-width:1200px;
+      width:100%;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(7,22,38,.90);
+      box-shadow: var(--shadow);
+    }
+    .modalTop{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:10px 12px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .modalTop button{
+      border:1px solid rgba(255,255,255,.18);
+      background: transparent;
+      color: var(--accent2);
+      border-radius:10px;
+      padding:8px 10px;
+      cursor:pointer;
+      font-weight:900;
+    }
+    .modalImg{
+      width:100%;
+      display:block;
+    }
+
+    .toast{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      background: rgba(18,54,83,.92);
+      border:1px solid rgba(255,255,255,.16);
+      color:var(--muted);
+      padding:12px 14px;
+      border-radius:14px;
+      box-shadow: var(--shadow);
+      display:none;
+      z-index:2000;
+      max-width:420px;
+      font-size:13px;
+    }
+    .toast.show{ display:block; }
+
+    /* Footer */
+    .footer{
+      margin-top:24px;
+      color:var(--muted);
+      font-size:12px;
+      padding:14px 4px 0;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+  </style>
 </head>
 
 <body>
-  <div id="app">
+<div class="shell">
 
-    <!-- HEADER -->
-    <header class="app-header">
-      <h1>Operational Product Case Studies</h1>
-      <p class="subtitle">
-        Demonstrating execution design, metrics ownership, and system-level thinking
-      </p>
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="brand">
+      <h1>Ozzy Sherif</h1>
+      <div class="title">PM Candidate · Operational Product & Program Management</div>
+    </div>
 
-      <nav class="primary-nav">
-        <button data-view="overview">Executive Overview</button>
-        <button data-view="inventory">Inventory Health</button>
-        <button data-view="labor">Labor Performance</button>
-        <button data-view="rubric">PM Skill Alignment</button>
-      </nav>
-    </header>
+    <div class="meta">
+      <div class="row"><div class="k">Current Title</div><div class="v">Assistant Manager (Center Store)</div></div>
+      <div class="row"><div class="k">Company</div><div class="v">Amazon Retail LLC</div></div>
+      <div class="row"><div class="k">Level</div><div class="v">L4</div></div>
+      <div class="row"><div class="k">Time in Level</div><div class="v">11 months</div></div>
+      <div class="row"><div class="k">Focus</div><div class="v">Execution Systems + Metrics</div></div>
+    </div>
 
-    <!-- MAIN CONTENT -->
-    <main id="content"></main>
+    <div class="nav" aria-label="Primary navigation">
+      <button class="active" data-route="overview">Overview</button>
+      <button data-route="inventory">Project 1 · Inventory Health</button>
+      <button data-route="labor">Project 2 · Labor Performance</button>
+      <button data-route="rubric">L4 PM Skills Rubric</button>
+      <button data-route="artifacts">Artifacts & Links</button>
+    </div>
 
-    <!-- FOOTER -->
-    <footer class="app-footer">
+    <div class="searchBox">
+      <label for="search">Search this portfolio (INF, UPH, labor, execution, metrics…)</label>
+      <input id="search" type="text" placeholder="Type to highlight matches…" />
+    </div>
+
+    <div class="links">
+      <a href="PM_Resume.pdf" target="_blank" rel="noopener">Open PM Resume (PDF)</a>
+      <a href="Osman-Sherif-Resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
+      <a href="projects/inventory-health/README.md" target="_blank" rel="noopener">Inventory README (GitHub)</a>
+      <a href="projects/labor-performance/README.md" target="_blank" rel="noopener">Labor README (GitHub)</a>
+    </div>
+
+    <div class="pillRow">
+      <span class="pill"><span class="dot"></span>Operational Excellence</span>
+      <span class="pill"><span class="dot"></span>Metrics Ownership</span>
+      <span class="pill"><span class="dot"></span>Decision Logs</span>
+      <span class="pill"><span class="dot"></span>Stakeholder Alignment</span>
+    </div>
+
+    <div class="footer">
+      Built as an executive-readable case study site (screenshots + narrative).<br/>
+      Click any image to enlarge.
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <section class="hero" id="top">
+      <h2>Operational PM Case Studies</h2>
       <p>
-        © Ozzy — PM Portfolio · Designed as decision-grade artifacts
+        This website presents two end-to-end, execution-driven case studies that demonstrate readiness for
+        Product / Program Management roles: (1) improving Inventory Health to reduce INF and protect customer
+        experience, and (2) optimizing Labor Performance to reduce cost while maintaining throughput and service.
       </p>
-    </footer>
 
+      <div class="kpis" role="list">
+        <div class="kpi" role="listitem">
+          <div class="label">Project Theme</div>
+          <div class="value">Execution Systems</div>
+          <div class="hint">Designed lightweight mechanisms that change behavior</div>
+        </div>
+        <div class="kpi" role="listitem">
+          <div class="label">Primary Outcomes</div>
+          <div class="value">CX + Cost</div>
+          <div class="hint">INF reduction + labor efficiency</div>
+        </div>
+        <div class="kpi" role="listitem">
+          <div class="label">Artifacts</div>
+          <div class="value">Dashboards</div>
+          <div class="hint">Screenshots + transparent raw data</div>
+        </div>
+        <div class="kpi" role="listitem">
+          <div class="label">PM Signal</div>
+          <div class="value">Decision Quality</div>
+          <div class="hint">Tradeoffs, constraints, and measurable impact</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROUTES -->
+    <div class="tabs" id="routeTabs" aria-label="Route tabs">
+      <button class="tab active" data-route="overview">Overview</button>
+      <button class="tab" data-route="inventory">Inventory Health</button>
+      <button class="tab" data-route="labor">Labor Performance</button>
+      <button class="tab" data-route="rubric">PM Rubric</button>
+      <button class="tab" data-route="artifacts">Artifacts</button>
+    </div>
+
+    <!-- CONTENT AREA -->
+    <div id="route-overview" class="route">
+      <section class="panel">
+        <h4>Professional Summary</h4>
+        <p class="muted">
+          I build execution systems that translate ambiguous operational problems into measurable outcomes.
+          My approach emphasizes metric clarity, disciplined operating mechanisms, and transparent review
+          loops that enable teams to improve performance without heavy tooling overhead.
+        </p>
+
+        <div class="twoCol">
+          <div class="card">
+            <h3>Core PM Strengths</h3>
+            <ul class="list">
+              <li><strong>Problem Framing:</strong> convert symptoms into controllable drivers</li>
+              <li><strong>Metrics Ownership:</strong> align leading indicators to outcome KPIs</li>
+              <li><strong>Execution Design:</strong> daily/weekly operating cadence that scales</li>
+              <li><strong>Stakeholder Alignment:</strong> create clarity without blame</li>
+              <li><strong>Iteration:</strong> baseline → interventions → stabilization</li>
+            </ul>
+            <span class="badge">Ownership</span>
+            <span class="badge">Dive Deep</span>
+            <span class="badge">Deliver Results</span>
+            <span class="badge">Bias for Action</span>
+          </div>
+
+          <div class="card">
+            <h3>Portfolio Map</h3>
+            <p class="muted">
+              Each project page includes: the business problem, success metrics, execution mechanism, decision
+              log, results, and raw-data transparency screenshots. This is formatted for a hiring manager to scan
+              in minutes.
+            </p>
+
+            <details open>
+              <summary>What you’ll see (fast scan)</summary>
+              <p>
+                • Executive summary → • Metrics table → • Dashboards → • Raw data snapshots → • Decision log →
+                • Results & next steps → • PM rubric mapping
+              </p>
+            </details>
+
+            <details>
+              <summary>Why screenshots (instead of files)</summary>
+              <p>
+                Screenshots focus the review on decision-making and outcomes, while avoiding tool-specific debugging.
+                This matches how PMs present work internally (narratives + dashboards + artifacts).
+              </p>
+            </details>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <h3>Quick Navigation</h3>
+          <p class="muted">Use the tabs above or jump directly:</p>
+          <p>
+            <a href="#" data-jump="inventory">→ Project 1: Inventory Health</a><br/>
+            <a href="#" data-jump="labor">→ Project 2: Labor Performance</a><br/>
+            <a href="#" data-jump="rubric">→ PM Rubric Mapping</a><br/>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- INVENTORY -->
+    <div id="route-inventory" class="route" style="display:none;">
+      <section class="panel">
+        <h4>Project 1 · Inventory Health Optimization & INF Reduction</h4>
+
+        <div class="twoCol">
+          <div class="card">
+            <h3>Problem</h3>
+            <ul class="list">
+              <li>INF elevated (~7–9%) impacting customer experience and fulfillment success</li>
+              <li>Inconsistent execution of gap scans, go-finds, and cycle counts</li>
+              <li>Rolled freight created “virtual inventory” and empty shelves</li>
+              <li>Limited visibility by department + sub-department</li>
+            </ul>
+
+            <h3 style="margin-top:18px;">Goal</h3>
+            <p class="highlight">
+              Achieve and sustain sub-5% EOD INF through consistent inventory health execution.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Success Metrics</h3>
+            <div class="tableWrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>Type</th>
+                    <th>Why it matters</th>
+                    <th>How it drives action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>EOD INF %</strong></td>
+                    <td>Outcome</td>
+                    <td>Direct customer-impact signal (pick success & availability)</td>
+                    <td>Triggers focused execution and follow-up on misses</td>
+                  </tr>
+                  <tr>
+                    <td>% Depts under 5% INF</td>
+                    <td>Outcome</td>
+                    <td>Reinforces consistency vs one-off wins</td>
+                    <td>Highlights which areas need targeted intervention</td>
+                  </tr>
+                  <tr>
+                    <td>Gap Scan Completed</td>
+                    <td>Leading</td>
+                    <td>Finds empty shelf gaps, ensures refills happen</td>
+                    <td>Creates task queue and accountability</td>
+                  </tr>
+                  <tr>
+                    <td>Go Find Remaining</td>
+                    <td>Leading</td>
+                    <td>Unresolved go-finds create repeat misses</td>
+                    <td>Drives closure to zero daily where possible</td>
+                  </tr>
+                  <tr>
+                    <td>HP Cycle Counts Remaining</td>
+                    <td>Leading</td>
+                    <td>Corrects negative sales & inventory inaccuracies</td>
+                    <td>Enforces daily “must be zero” completion standard</td>
+                  </tr>
+                  <tr>
+                    <td>Rolled Freight Units</td>
+                    <td>Risk driver</td>
+                    <td>Virtual stock ≠ shelf stock → INF increases</td>
+                    <td>Prioritizes stocking / zeroing / receiving discipline</td>
+                  </tr>
+                  <tr>
+                    <td>SDU %</td>
+                    <td>Outcome signal</td>
+                    <td>Same-day unavailable indicates availability execution gaps</td>
+                    <td>Used as validation alongside INF trend</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <details open>
+          <summary>Operating Mechanism (how this works day-to-day)</summary>
+          <p>
+            The system uses a simple daily intake (data entry) that appends into raw data. The dashboard serves as
+            a weekly leadership view while preserving daily drill-down. This enables consistent review, prioritization,
+            and closure on execution misses (gap scans, go-finds, high-priority cycle counts).
+          </p>
+        </details>
+
+        <details>
+          <summary>Decision Log (PM thinking under constraints)</summary>
+          <p>
+            • Chose leading indicators (completion + remaining) to prevent lagging surprises.<br/>
+            • Segmented by department/sub-department to avoid averaging away problems.<br/>
+            • Designed for frontline usability (simple daily entry, complexity behind the scenes).<br/>
+            • Captured notes to explain “why” variability occurs (labor/freight constraints).
+          </p>
+        </details>
+
+        <div class="card" style="margin-top:14px;">
+          <h3>Evidence (Screenshots)</h3>
+          <div class="gallery">
+            <figure>
+              <img src="projects/inventory-health/screenshots/data-entry-process.png" alt="Inventory data entry process">
+              <figcaption><strong>Data Entry:</strong> Standard daily intake for execution + INF drivers.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/inventory-health/screenshots/dashboard-center-store.png" alt="Inventory dashboard center store">
+              <figcaption><strong>Dashboard:</strong> Center Store view segmented by sub-department.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/inventory-health/screenshots/dashboard-paleo.png" alt="Inventory dashboard paleo">
+              <figcaption><strong>Dashboard:</strong> Paleo view highlights fresh-department variability.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/inventory-health/screenshots/raw-data-september.png" alt="Inventory raw data september">
+              <figcaption><strong>Raw Data (Sep):</strong> Baseline period showing elevated INF + misses.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/inventory-health/screenshots/raw-data-october.png" alt="Inventory raw data october">
+              <figcaption><strong>Raw Data (Oct):</strong> Stabilization period with improved completion patterns.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/inventory-health/screenshots/raw-data-snapshot.png" alt="Inventory raw data snapshot">
+              <figcaption><strong>Raw Data Snapshot:</strong> Demonstrates structured daily logging.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <h3>Results & Impact (Executive Summary)</h3>
+          <ul class="list">
+            <li>INF trended downward from ~8% toward ~4.8–5.0%</li>
+            <li>Execution consistency improved across departments</li>
+            <li>Rolled freight risk reduced through closure and stocking discipline</li>
+            <li>Sub-department segmentation enabled targeted focus</li>
+          </ul>
+          <details>
+            <summary>Next steps (what I’d do as a PM)</summary>
+            <p>
+              Automate ingestion where possible, normalize the health score, create alerts for missed tasks, and
+              scale the operating mechanism across stores with a standardized weekly review cadence.
+            </p>
+          </details>
+        </div>
+      </section>
+    </div>
+
+    <!-- LABOR -->
+    <div id="route-labor" class="route" style="display:none;">
+      <section class="panel">
+        <h4>Project 2 · Labor Performance Optimization & Cost Control</h4>
+
+        <div class="twoCol">
+          <div class="card">
+            <h3>Problem</h3>
+            <ul class="list">
+              <li>Labor cost variability week-to-week created inconsistent productivity</li>
+              <li>Freight timing and rollover caused labor waste and throughput drops</li>
+              <li>Leadership needed a weekly-first view with daily drill-down</li>
+              <li>Required clear separation between Center Store and Paleo</li>
+            </ul>
+
+            <h3 style="margin-top:18px;">Goal</h3>
+            <p class="highlight">
+              Improve UPH and labor efficiency while reducing variance and rollover impact.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Key Metrics</h3>
+            <div class="tableWrap">
+              <table>
+                <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Definition</th>
+                  <th>Decision supported</th>
+                  <th>Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>UPH</strong></td>
+                    <td>Units completed ÷ labor hours</td>
+                    <td>Where we’re productive vs inefficient</td>
+                    <td>Core throughput measure</td>
+                  </tr>
+                  <tr>
+                    <td>Labor Efficiency %</td>
+                    <td>Actual ÷ Planned hours</td>
+                    <td>Over/under staffing detection</td>
+                    <td>Interpreted weekly</td>
+                  </tr>
+                  <tr>
+                    <td>Rollover Rate %</td>
+                    <td>Rolled units ÷ total units</td>
+                    <td>Operational drag + readiness risk</td>
+                    <td>Should trend down</td>
+                  </tr>
+                  <tr>
+                    <td>On-time Freight %</td>
+                    <td>Freight on-time ÷ total</td>
+                    <td>Separates execution vs upstream timing</td>
+                    <td>Explains variance</td>
+                  </tr>
+                  <tr>
+                    <td>Associate Coverage Blocks</td>
+                    <td>04–08, 08–12, 12–16, 16–20</td>
+                    <td>Shift shaping + staffing distribution</td>
+                    <td>PM-style capacity planning</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <details open>
+          <summary>Operating Cadence (how leaders used this)</summary>
+          <p>
+            Weekly review: planned vs actual labor, average UPH, rollover trend, and on-time freight performance.
+            Daily drill-down via slicers when a week underperformed. This enabled targeted staffing decisions and
+            root-cause clarity (late freight vs labor vs execution).
+          </p>
+        </details>
+
+        <details>
+          <summary>Decision Log (PM tradeoffs)</summary>
+          <p>
+            • Prioritized weekly-first leadership view to reduce noise and drive action.<br/>
+            • Enforced department separation to prevent blending different operating zones.<br/>
+            • Used time-block staffing to show distribution, not just totals.<br/>
+            • Treated late freight as a variance driver, not a performance excuse.
+          </p>
+        </details>
+
+        <div class="card" style="margin-top:14px;">
+          <h3>Evidence (Screenshots)</h3>
+          <div class="gallery">
+            <figure>
+              <img src="projects/labor-performance/screenshots/labor-dashboard-overview.png" alt="Labor dashboard overview">
+              <figcaption><strong>Dashboard Overview:</strong> Executive weekly-first view.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/labor-performance/screenshots/dashboard-weekly-trend.png" alt="Labor weekly trend">
+              <figcaption><strong>Weekly Trend:</strong> Throughput and efficiency movement over time.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/labor-performance/screenshots/dashboard-center-store.png" alt="Labor dashboard center store">
+              <figcaption><strong>Center Store:</strong> Separate operating zone performance view.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/labor-performance/screenshots/dashboard-paleo.png" alt="Labor dashboard paleo">
+              <figcaption><strong>Paleo:</strong> Fresh zone performance view.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/labor-performance/screenshots/raw-data-labor-sample.png" alt="Labor raw data sample">
+              <figcaption><strong>Raw Data (Labor):</strong> Validates inputs for calculation integrity.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/labor-performance/screenshots/raw-data-november.png" alt="Labor raw data november">
+              <figcaption><strong>Raw Data (Nov):</strong> Later period snapshot used for trend review.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/labor-performance/screenshots/october.png" alt="Labor raw data october">
+              <figcaption><strong>Raw Data (Oct):</strong> October snapshot supporting weekly rollups.</figcaption>
+            </figure>
+            <figure>
+              <img src="projects/labor-performance/screenshots/raw-data-sample.png" alt="Labor raw data sample 2">
+              <figcaption><strong>Raw Data (Sample):</strong> Additional credibility view for reviewers.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <h3>Results & Impact (Executive Summary)</h3>
+          <ul class="list">
+            <li>Improved visibility into labor efficiency vs freight timing</li>
+            <li>Enabled weekly staffing and execution focus decisions</li>
+            <li>Reduced rollover impact by identifying operational choke points</li>
+            <li>Created a repeatable leadership review mechanism</li>
+          </ul>
+          <details>
+            <summary>Next steps (what I’d do as a PM)</summary>
+            <p>
+              Add alerting thresholds, integrate automated data feeds, and build a standardized weekly action plan
+              template tied to the dashboard outputs (department-specific playbooks).
+            </p>
+          </details>
+        </div>
+      </section>
+    </div>
+
+    <!-- RUBRIC -->
+    <div id="route-rubric" class="route" style="display:none;">
+      <section class="panel">
+        <h4>L4 Senior PM Skills Rubric — Evidence Mapping</h4>
+
+        <div class="card">
+          <h3>How to read this</h3>
+          <p class="muted">
+            This mapping translates project evidence into PM-ready behaviors. It’s intentionally written in
+            “hiring manager language” so it’s easy to evaluate quickly.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <h3>Rubric Table</h3>
+          <div class="tableWrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>PM Skill Area</th>
+                  <th>Behavior</th>
+                  <th>Evidence from Project 1 (Inventory)</th>
+                  <th>Evidence from Project 2 (Labor)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Problem Framing</strong></td>
+                  <td>Translate symptoms into controllable drivers</td>
+                  <td>INF linked to execution: go-finds, gap scans, cycle counts, rolled freight</td>
+                  <td>Labor variance linked to throughput and freight timing; separated drivers</td>
+                </tr>
+                <tr>
+                  <td><strong>Metrics Ownership</strong></td>
+                  <td>Define outcomes + leading indicators</td>
+                  <td>EOD INF + completion/remaining indicators</td>
+                  <td>UPH, labor efficiency %, rollover %, on-time freight</td>
+                </tr>
+                <tr>
+                  <td><strong>Execution Design</strong></td>
+                  <td>Create repeatable operating mechanisms</td>
+                  <td>Daily intake + weekly review + drill-down</td>
+                  <td>Weekly-first view with staffing distribution blocks</td>
+                </tr>
+                <tr>
+                  <td><strong>Stakeholder Alignment</strong></td>
+                  <td>Create clarity without blame</td>
+                  <td>Notes + transparent misses drive closure behaviors</td>
+                  <td>Separated upstream timing from team execution to enable fair action</td>
+                </tr>
+                <tr>
+                  <td><strong>Decision Making</strong></td>
+                  <td>Make tradeoffs under constraints</td>
+                  <td>Leading indicators chosen over complex scoring early</td>
+                  <td>Time-block staffing shows distribution, enabling targeted shifts</td>
+                </tr>
+                <tr>
+                  <td><strong>Iteration</strong></td>
+                  <td>Baseline → intervention → stabilization</td>
+                  <td>Baseline Sep, improved Oct, stabilizing toward Nov</td>
+                  <td>Week-over-week improvements via dashboard-driven focus</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <details style="margin-top:12px;">
+            <summary>How I’d present this in a PM interview (talk track)</summary>
+            <p>
+              “I started by defining success metrics tied to customer impact (INF) and operational leading indicators.
+              Then I designed a daily mechanism that made execution visible and easy to close. Weekly trend views enabled
+              prioritization and prevented regression. In parallel, I built a labor performance dashboard to control cost
+              and throughput, isolating freight timing vs staffing decisions. The result was a measurable trend improvement
+              and a scalable operating cadence.”
+            </p>
+          </details>
+        </div>
+      </section>
+    </div>
+
+    <!-- ARTIFACTS -->
+    <div id="route-artifacts" class="route" style="display:none;">
+      <section class="panel">
+        <h4>Artifacts & Links</h4>
+
+        <div class="twoCol">
+          <div class="card">
+            <h3>Project Links</h3>
+            <ul class="list">
+              <li><a href="projects/inventory-health/README.md" target="_blank" rel="noopener">Inventory Health README</a></li>
+              <li><a href="projects/labor-performance/README.md" target="_blank" rel="noopener">Labor Performance README</a></li>
+            </ul>
+            <details>
+              <summary>What’s included (by design)</summary>
+              <p>
+                Screenshots, narrative, metric definitions, decision logs, and outcomes. No Excel files are required for review
+                because the focus is PM thinking and impact rather than tool mechanics.
+              </p>
+            </details>
+          </div>
+
+          <div class="card">
+            <h3>Resumes</h3>
+            <ul class="list">
+              <li><a href="PM_Resume.pdf" target="_blank" rel="noopener">PM Resume (PDF)</a></li>
+              <li><a href="Osman-Sherif-Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
+            </ul>
+            <details>
+              <summary>How to review quickly</summary>
+              <p>
+                Start at Overview → open Inventory Health → scan screenshots → jump to Rubric table → open Labor Performance.
+                This is structured for a 5–10 minute hiring manager review.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="toast" id="toast">Copied.</div>
+
+  </main>
+</div>
+
+<!-- Image Modal -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modalBox" role="dialog" aria-modal="true">
+    <div class="modalTop">
+      <div id="modalLabel">Preview</div>
+      <button id="closeModal">Close</button>
+    </div>
+    <img class="modalImg" id="modalImg" alt="Expanded screenshot" />
   </div>
+</div>
 
-  <!-- JS -->
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/inventory.js"></script>
-  <script src="assets/js/labor.js"></script>
-  <script src="assets/js/rubric.js"></script>
-</body>
-</html>
-const content = document.getElementById("content");
+<script>
+  // ROUTER
+  const routeButtons = Array.from(document.querySelectorAll('[data-route]'));
+  const tabButtons = Array.from(document.querySelectorAll('.tab[data-route]'));
+  const routes = ["overview","inventory","labor","rubric","artifacts"];
 
-function loadView(view) {
-  content.innerHTML = "";
+  function setActive(route){
+    routes.forEach(r=>{
+      const el = document.getElementById('route-' + r);
+      if(el) el.style.display = (r === route) ? 'block' : 'none';
+    });
 
-  switch (view) {
-    case "overview":
-      renderOverview();
-      break;
-    case "inventory":
-      renderInventoryProject();
-      break;
-    case "labor":
-      renderLaborProject();
-      break;
-    case "rubric":
-      renderPMRubric();
-      break;
+    routeButtons.forEach(b=> b.classList.toggle('active', b.dataset.route === route));
+    tabButtons.forEach(b=> b.classList.toggle('active', b.dataset.route === route));
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
-}
 
-document.querySelectorAll(".primary-nav button")
-  .forEach(btn => {
-    btn.addEventListener("click", () => {
-      loadView(btn.dataset.view);
+  routeButtons.forEach(btn => btn.addEventListener('click', () => setActive(btn.dataset.route)));
+  tabButtons.forEach(btn => btn.addEventListener('click', () => setActive(btn.dataset.route)));
+
+  // Jump links
+  document.querySelectorAll('[data-jump]').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      e.preventDefault();
+      setActive(a.dataset.jump);
     });
   });
 
-loadView("overview");
+  // Search highlight (simple, safe)
+  const search = document.getElementById('search');
+  search.addEventListener('input', () => {
+    const q = search.value.trim().toLowerCase();
+    // Clear previous highlights
+    document.querySelectorAll('mark.__hl').forEach(m=>{
+      const txt = document.createTextNode(m.textContent);
+      m.replaceWith(txt);
+    });
+    if(!q) return;
 
-function renderOverview() {
-  content.innerHTML = `
-    <section class="panel">
-      <h2>Executive Summary</h2>
-      <p>
-        This portfolio presents two operational case studies demonstrating
-        how a Product / Program Manager designs lightweight systems that drive
-        measurable performance improvements under real-world constraints.
-      </p>
+    const walker = document.createTreeWalker(document.querySelector('.main'), NodeFilter.SHOW_TEXT, {
+      acceptNode(node){
+        if(!node.parentElement) return NodeFilter.FILTER_REJECT;
+        if(["SCRIPT","STYLE"].includes(node.parentElement.tagName)) return NodeFilter.FILTER_REJECT;
+        if(!node.nodeValue || node.nodeValue.trim().length < 2) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
 
-      <ul class="pill-list">
-        <li>Execution Design</li>
-        <li>Metric Ownership</li>
-        <li>Cross-Functional Alignment</li>
-        <li>Operational Excellence</li>
-        <li>Scalable Thinking</li>
-      </ul>
+    const nodes = [];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
 
-      <p>
-        These projects intentionally avoid polished analytics platforms in favor
-        of execution discipline, transparency, and behavioral change.
-      </p>
-    </section>
-  `;
-}
-function renderInventoryProject() {
-  content.innerHTML = `
-    <section class="panel">
-      <h2>Inventory Health Optimization</h2>
+    nodes.forEach(node=>{
+      const text = node.nodeValue;
+      const lower = text.toLowerCase();
+      const idx = lower.indexOf(q);
+      if(idx >= 0){
+        const before = document.createTextNode(text.slice(0, idx));
+        const match = document.createElement('mark');
+        match.className = "__hl";
+        match.style.background = "rgba(88,198,255,.22)";
+        match.style.border = "1px solid rgba(88,198,255,.35)";
+        match.style.borderRadius = "6px";
+        match.style.padding = "0 4px";
+        match.style.color = "var(--ink)";
+        match.textContent = text.slice(idx, idx + q.length);
+        const after = document.createTextNode(text.slice(idx + q.length));
+        node.replaceWith(before, match, after);
+      }
+    });
+  });
 
-      <h3>Problem</h3>
-      <p>
-        Elevated Item Not Found (INF) rates were driven by inconsistent execution
-        of inventory health processes across departments.
-      </p>
+  // Modal image viewer
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+  const modalLabel = document.getElementById('modalLabel');
+  const closeModal = document.getElementById('closeModal');
 
-      <h3>Objective</h3>
-      <p class="highlight">
-        Achieve and sustain sub-5% EOD INF through consistent execution.
-      </p>
-
-      <h3>Dashboards</h3>
-      <div class="image-grid">
-        <img src="projects/inventory-health/screenshots/dashboard-center-store.png">
-        <img src="projects/inventory-health/screenshots/dashboard-paleo.png">
-      </div>
-
-      <h3>Raw Data Transparency</h3>
-      <div class="image-grid">
-        <img src="projects/inventory-health/screenshots/raw-data-september.png">
-        <img src="projects/inventory-health/screenshots/raw-data-october.png">
-        <img src="projects/inventory-health/screenshots/raw-data-snapshot.png">
-      </div>
-
-      <h3>Key Results</h3>
-      <ul>
-        <li>INF reduced from ~8% to ~4.8%</li>
-        <li>Execution consistency improved across all departments</li>
-        <li>Rolled freight reduced</li>
-      </ul>
-    </section>
-  `;
-}
-function renderLaborProject() {
-  content.innerHTML = `
-    <section class="panel">
-      <h2>Labor Performance Optimization</h2>
-
-      <p>
-        This project focused on improving throughput (UPH), reducing labor
-        variance, and minimizing rolled units under fluctuating freight timing.
-      </p>
-
-      <div class="image-grid">
-        <img src="projects/labor-performance/screenshots/labor-dashboard-overview.png">
-        <img src="projects/labor-performance/screenshots/dashboard-weekly-trend.png">
-      </div>
-
-      <h3>Department Views</h3>
-      <div class="image-grid">
-        <img src="projects/labor-performance/screenshots/dashboard-center-store.png">
-        <img src="projects/labor-performance/screenshots/dashboard-paleo.png">
-      </div>
-
-      <h3>Impact</h3>
-      <ul>
-        <li>Labor efficiency ~100%</li>
-        <li>UPH improved week over week</li>
-        <li>Rollover rate reduced to ~2–3%</li>
-      </ul>
-    </section>
-  `;
-}
-function renderPMRubric() {
-  content.innerHTML = `
-    <section class="panel">
-      <h2>L4 Senior PM Skills Alignment</h2>
-
-      <table>
-        <tr><th>Competency</th><th>Evidence</th></tr>
-        <tr><td>Problem Framing</td><td>Clear articulation of root causes</td></tr>
-        <tr><td>Metrics Ownership</td><td>Outcome and execution metrics defined</td></tr>
-        <tr><td>Execution Design</td><td>Lightweight systems driving behavior</td></tr>
-        <tr><td>Decision Making</td><td>Trend-based operational prioritization</td></tr>
-        <tr><td>Iteration</td><td>Baseline → Transition → Stabilization</td></tr>
-      </table>
-
-      <p class="closing">
-        These artifacts reflect PM thinking under ambiguity, constraint, and
-        imperfect data — the core reality of senior product roles.
-      </p>
-    </section>
-  `;
-}
-function renderPMRubric() {
-  content.innerHTML = `
-    <section class="panel">
-      <h2>L4 Senior PM Skills Alignment</h2>
-
-      <table>
-        <tr><th>Competency</th><th>Evidence</th></tr>
-        <tr><td>Problem Framing</td><td>Clear articulation of root causes</td></tr>
-        <tr><td>Metrics Ownership</td><td>Outcome and execution metrics defined</td></tr>
-        <tr><td>Execution Design</td><td>Lightweight systems driving behavior</td></tr>
-        <tr><td>Decision Making</td><td>Trend-based operational prioritization</td></tr>
-        <tr><td>Iteration</td><td>Baseline → Transition → Stabilization</td></tr>
-      </table>
-
-      <p class="closing">
-        These artifacts reflect PM thinking under ambiguity, constraint, and
-        imperfect data — the core reality of senior product roles.
-      </p>
-    </section>
-  `;
-}
-:root {
-  --bg-dark: #0b2239;
-  --bg-panel: #102e4a;
-  --accent: #5cc8ff;
-  --accent-soft: #9fe0ff;
-  --text-main: #e6f2ff;
-  --text-muted: #9bb7d4;
-  --success: #38c172;
-  --warning: #ffb020;
-}
-
-* {
-  box-sizing: border-box;
-  font-family: "Inter", system-ui, sans-serif;
-}
-
-body {
-  margin: 0;
-  background: linear-gradient(180deg, #071b2f, #0b2239);
-  color: var(--text-main);
-}
-
-.app-header {
-  padding: 32px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.app-header h1 {
-  margin: 0;
-  font-size: 32px;
-  font-weight: 900;
-}
-
-.subtitle {
-  margin-top: 8px;
-  color: var(--text-muted);
-}
-
-.primary-nav {
-  margin-top: 20px;
-  display: flex;
-function renderInventoryProject() {
-  content.innerHTML = `
-    <section class="panel">
-      <h2>Inventory Health Optimization</h2>
-
-      <div class="tabs">
-        <button onclick="invTab('overview')">Overview</button>
-        <button onclick="invTab('metrics')">Metrics</button>
-        <button onclick="invTab('dashboards')">Dashboards</button>
-        <button onclick="invTab('data')">Raw Data</button>
-        <button onclick="invTab('decisions')">Decisions</button>
-        <button onclick="invTab('learnings')">Learnings</button>
-      </div>
-
-      <div id="inv-content"></div>
-    </section>
-  `;
-
-  invTab("overview");
-}
-
-function invTab(tab) {
-  const el = document.getElementById("inv-content");
-
-  if (tab === "overview") {
-    el.innerHTML = `
-      <h3>Context</h3>
-      <p>
-        Elevated INF rates were impacting customer experience, fulfillment speed,
-        and inventory trust. Root cause analysis showed process inconsistency,
-        not system failure.
-      </p>
-
-      <h3>Primary Goal</h3>
-      <p class="highlight">
-        Sustain sub-5% EOD INF through execution discipline.
-      </p>
-    `;
+  function openModal(src, label){
+    modalImg.src = src;
+    modalLabel.textContent = label || "Screenshot preview";
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
   }
 
-  if (tab === "metrics") {
-    el.innerHTML = `
-      <h3>Success Metrics</h3>
-      <ul>
-        <li><strong>EOD INF %</strong> — primary outcome</li>
-        <li>% Departments under 5% INF</li>
-        <li>SDU %</li>
-        <li>Gap Scan Completion</li>
-        <li>Rolled Freight</li>
-      </ul>
-    `;
+  function hideModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    modalImg.src = "";
   }
 
-  if (tab === "dashboards") {
-    el.innerHTML = `
-      <h3>Dashboards</h3>
-      <div class="image-grid">
-        <img src="projects/inventory-health/screenshots/dashboard-center-store.png">
-        <img src="projects/inventory-health/screenshots/dashboard-paleo.png">
-      </div>
-    `;
-  }
+  closeModal.addEventListener('click', hideModal);
+  modal.addEventListener('click', (e)=>{ if(e.target === modal) hideModal(); });
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') hideModal(); });
 
-  if (tab === "data") {
-    el.innerHTML = `
-      <h3>Raw Data Transparency</h3>
-      <div class="image-grid">
-        <img src="projects/inventory-health/screenshots/raw-data-september.png">
-        <img src="projects/inventory-health/screenshots/raw-data-october.png">
-        <img src="projects/inventory-health/screenshots/raw-data-snapshot.png">
-      </div>
-    `;
-  }
+  // Attach to all images inside figures + gallery
+  document.querySelectorAll('img').forEach(img=>{
+    const src = img.getAttribute('src');
+    if(!src) return;
+    // Avoid modal for icons or missing images (still safe)
+    img.addEventListener('click', ()=>{
+      const alt = img.getAttribute('alt') || "Screenshot";
+      openModal(src, alt);
+    });
+  });
 
-  if (tab === "decisions") {
-    el.innerHTML = `
-      <h3>Key Decisions</h3>
-      <ul>
-        <li>Tracked execution before automating analytics</li>
-        <li>Chose daily discipline over weekly reporting</li>
-        <li>Made misses visible rather than hidden</li>
-      </ul>
-    `;
-  }
-
-  if (tab === "learnings") {
-    el.innerHTML = `
-      <h3>Key Learnings</h3>
-      <ul>
-        <li>Execution quality predicts outcomes</li>
-        <li>Sub-department visibility matters</li>
-        <li>Simple systems outperform complex tools early</li>
-      </ul>
-    `;
-  }
-}
-function renderPMRubric() {
-  content.innerHTML = `
-    <section class="panel">
-      <h2>L4 Senior PM Readiness</h2>
-
-      <p>
-        The following table maps demonstrated behaviors directly to
-        Senior PM expectations.
-      </p>
-
-      <table>
-        <tr><th>PM Skill</th><th>Demonstrated Evidence</th></tr>
-        <tr>
-          <td>Problem Framing</td>
-          <td>Translated INF symptoms into execution gaps</td>
-        </tr>
-        <tr>
-          <td>Metrics Ownership</td>
-          <td>Defined outcome + leading indicators</td>
-        </tr>
-        <tr>
-          <td>Execution Design</td>
-          <td>Built daily operating mechanisms</td>
-        </tr>
-        <tr>
-          <td>Decision Making</td>
-          <td>Tradeoffs documented under labor constraints</td>
-        </tr>
-        <tr>
-          <td>Iteration</td>
-          <td>Baseline → Transition → Stabilization</td>
-        </tr>
-        <tr>
-          <td>Stakeholder Alignment</td>
-          <td>Created visibility without blame</td>
-        </tr>
-      </table>
-
-      <p class="closing">
-        These projects demonstrate senior-level PM judgment under ambiguity,
-        imperfect data, and real operational pressure.
-      </p>
-    </section>
-  `;
-}
+  // Init
+  setActive("overview");
+</script>
+</body>
+</html>
